@@ -1,0 +1,36 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "DS2023Demo"
+  author: "Alka Link, Grace Pitts, Kieran Perdue, Michael Carlson"
+  favicon: logo.png
+  description: "A demo book for DS2023"
+  keyword: data science, communicating, storytelling, data visualization, data design
+  #url:
+  #sidebar: 
+   # logo: logo.png
+    #search: true
+    #repo-url:
+    #repo-branch: main
+    #image: logo.png
+
+  chapters:
+    - index.qmd
+    - datalearning.qmd
+    - eda.qmd
+    - dataviz.qmd
+    - datadictionary.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: minty
+    code-fold: false
+    backgroundcolor: '#FFFFFF'
+
+
+
