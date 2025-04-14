@@ -1,0 +1,147 @@
+## Exploratory Data Analysis
+
+### Michael Carlson - mjy7nw
+
+```{python}
+# import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import scipy as sp
+```
+
+```{python}
+
+#load data
+c1 = pd.read_csv('catapult season 1.csv')
+c2 = pd.read_csv('catapult season 2.csv')
+#merge the two seasons using concatonate ignoring their individual indexes
+df = pd.concat([c1, c2], ignore_index=True)
+
+```
+
+```{python}
+#explore data
+df.head()
+#looks at data types
+print(df.info())
+#seems there is a lot of int types which means it will be likely best to work mainly with numerical data
+#also used data wrangler to get a better look at the overall data set
+```
+
+#### Identify Important Variables
+##### Which variables are most important for your analysis? Why?
+> I believe that variables such will be most useful will be playerload per min as well as frequency of jumps to measure exertion for the analysis and project objectives because by these metrics I hope to see overall exertion by either specific players or player position
+
+```{python}
+#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables
+numeric = df.select_dtypes(include=[np.number])
+numeric = numeric.drop(columns=['Period Number'])
+numeric = numeric.dropna()
+
+# Create a new dataframe to store summary statistics
+summary = pd.DataFrame()
+
+# Calculate summary statistics for each numeric column and add to the dataframe
+for each in numeric.columns:
+    stats = numeric[each].describe()
+    summary[each] = stats
+
+summary
+
+#It seems total player load, player load per minute, and session total jumps are good metrics, possibly as well as explosive efforts
+```
+
+```{python}
+#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.
+
+#data frame with key variables
+key = df[['Player Load Per Minute', 'Session Total Jumps', 'Explosive Efforts', 'Total Player Load']]
+plt.figure(figsize=(10, 6))
+
+#Plotting distribution of Player Load Per Minute
+sns.histplot(df['Player Load Per Minute'], bins=30, kde=True)
+plt.title('Distribution of Player Load Per Minute')
+
+plt.figure(figsize=(10, 6))
+#Boxplot of session jumps
+sns.boxplot(x='Session Total Jumps', data=df)
+plt.title('Boxplot of Session Total Jumps')
+
+#pairplot of key variables to see possible relationships
+sns.pairplot(key)
+#most promising relationship seems to be between total player load and explosive efforts
+```
+```{python}
+#Use correlation matrices, scatterplots, or other techniques to assess relationships between numerical variables.
+
+#correlation matrix
+
+#creating correlation based on key variables
+corr = key.corr()
+plt.figure(figsize=(10, 6))
+#plotting heatmap to understand correlation
+#seems that tpl and explosive efforts are highly correlated
+sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Matrix of Key Variables')
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Total Player Load', y='Explosive Efforts', data=key)
+#lets see if we can shape that better
+plt.figure(figsize=(10, 6))
+sns.regplot(x='Total Player Load', y='Explosive Efforts', data=key, scatter_kws={'color': 'darkblue'}, line_kws={'color': 'red'})
+#seems to be a linear relationship, which makes sense as more effort in explosive efforts would also increase total player load
+```
+```{python}
+#For categorical variables, determine the frequency distributions
+
+cat = df.select_dtypes(include=[object])
+cat = cat.drop(columns=['group-uuid', 'Period', 'event-uuid','Date'])
+cat = cat.dropna()
+
+#for loop it iterate over each column to determine the number of each unique value
+#for lopp prints the frequency of each unique value
+for each in cat.columns:
+    print(f"{each}: {cat[each].value_counts()}")
+#plot the frequency using countplot via for loop
+for each in cat.columns:
+    plt.figure(figsize=(10, 6))
+    #plot of each column
+    sns.countplot(x=each, data=cat)
+    plt.title(f'{each}')
+    plt.xticks(rotation=45)
+    plt.show()
+
+#seems athlete E is most frequent, with the most data for guards
+```
+
+#### Assess Missing Data
+```{python}
+#Identify missing values in the dataset and determine the extent of missingness.
+
+#check for missing values using is null (not there)
+missing = df.isnull().sum()
+#using greater than 0 to find ones with missing values
+missing = missing[missing > 0]
+#calculating percentage of missing values
+missing_percentage = (missing / len(df)) * 100
+#storing in a data frame as a dictionary for easy readability
+miss = pd.DataFrame({'Missing Values': missing, 'Percentage': missing_percentage})
+print(miss)
+
+'''
+since the practice totals only occur once per practice, they take on the appearance of being missing when they must be handled differently
+these columns may need to be separated out and condensed into only data that exists
+this is an example of hierarchical data, where the data is not missing but rather not applicable
+When developing further analysis and research, it is important to recognize that practice data will have a lot of missing values for each metric taken once per practice
+'''
+```
+
+### Hypotheses & Plan for Future Visuals
+##### Hypotheses
+> I would like to pose two research questions/hypotheses based on my EDA:
+> 1. Total player load (TPL) and explosive efforts are positively correlated, so to focus on improving explosive efforts, we should improve not only TPL, but their ability to continuously exert themselves over time in the form of player load per minute which I believe decreases as practice goes on. 
+> 2. I would like to investigate the difference in demands between different player positions as I believe different positions exert different amounts of explosive jumps, accelerations, and TPL as well as look at how these metrics can be improved at each position. 
+
+##### Recommended Visuals
+> I would be interested in creating a few time based graphs such as a line graph of player load per minute to see if it decreases over time, as well as an overlay of TPL behind it to contextualize it. I would like to create a bar graph of the average TPL and explosive efforts per position to see if there are any differences between positions. I would like to do other position based graphs such as exploring a time based graph of explosive efforts per position over time to see who and when they are exerting themselves the most. A bubble chart with each player colored by position in a graph of player load per minute and explosive efforts would be interesting to investigate individual stats and how they contribute to the whole. 

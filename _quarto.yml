@@ -23,7 +23,7 @@ book:
     - dataviz.qmd
     - datadictionary.qmd
 
-bibliography: references.bib
+
 
 format:
   html:
