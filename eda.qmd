@@ -129,16 +129,13 @@ sns.regplot(x='Total Player Load', y='Explosive Efforts', data=df, scatter_kws={
 
 
 
-### Explore Relationships (if relevant)
+### Explore Relationships
 >Dig into potential causal or descriptive relationships 
 ```{python}
 plt.figure(figsize=(8,6))
 sns.boxplot(x="Position", y="Total Player Load", data=df)
 plt.title("Player Loads by Position")
 plt.show()
-
-
-
 
 plt.figure(figsize=(8,6))
 sns.boxplot(x="Position", y="Explosive Efforts", data=df)
