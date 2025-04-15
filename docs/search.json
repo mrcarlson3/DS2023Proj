@@ -4,7 +4,7 @@
     "href": "eda.html",
     "title": "3  Group EDA",
     "section": "",
-    "text": "3.1 Important Variables within this Dataset\nIt is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nEach position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
+    "text": "3.1 Important Variables within this Dataset\nThe Audience:It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nThe Problem Statement: Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
     ]
