@@ -3,20 +3,20 @@
 
 It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need. 
 
-## Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?
+**Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?**
 
 
 ## Important Variables within this Dataset
->Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. 
->Player Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.
->Explosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.
->Session Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.
->Session Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.
->Total IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.
->IMA/Min: Number of movements per minute. This is important to track endurance by position.
->Position: This is important for our analysis to compare all of our variables against position. 
+* Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. 
+* Player Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.
+* Explosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.
+* Session Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.
+* Session Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.
+* Total IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.
+* IMA/Min: Number of movements per minute. This is important to track endurance by position.
+* Position: This is important for our analysis to compare all of our variables against position. 
 
-### Cleaning the data
+## Cleaning the data
 ```{python}
 # import libraries
 import pandas as pd
@@ -42,7 +42,6 @@ df = df.drop_duplicates()
 
 #correct data types
 missing_values = df.isnull().sum()
-print(f"Missing values: {missing_values}")
 #drop missing values
 df = df.dropna()
 #check data types
@@ -52,16 +51,7 @@ key_vars = [
 df = df[key_vars]
 ```
 
-
-# summary stats of important variables 
-df[key_vars].describe()
-
-
-### Descriptive Statistics & Distributions
-> Provide summaries
->  of important variables 
-> Use visualizations to explore distributions.
-
+## Descriptive Statistics & Distributions
 
 ```{python}
 
@@ -72,7 +62,6 @@ numeric = numeric.dropna()
 
 # Create a new dataframe to store summary statistics
 summary = pd.DataFrame()
-
 # Calculate summary statistics for each numeric column and add to the dataframe
 for each in numeric.columns:
     stats = numeric[each].describe()
@@ -90,14 +79,12 @@ corr = numeric_df.corr()
 sns.heatmap(corr, cmap='coolwarm', annot=False, linewidths=0.5)
 plt.title('Correlation Matrix')
 plt.show()
-#data frame with key variables
-#key = df[['Player Load Per Minute', 'Session Total Jumps', 'Explosive Efforts', 'Total Player Load']]
-plt.figure(figsize=(10, 6))
 
+plt.figure(figsize=(10, 6))
 #Plotting distribution of Player Load Per Minute
 sns.histplot(df['Player Load Per Minute'], bins=30, kde=True)
 plt.title('Distribution of Player Load Per Minute')
-
+plt.show()
 plt.figure(figsize=(10, 6))
 
 # correlation with player load and position
@@ -107,20 +94,11 @@ plt.show()
 ```
 
 
-### Examine Correlations (if relevant)
+## Examine Correlations 
 > Interpret findings: what variables appear related?
 ```{python}
 
-#Use correlation matrices, scatterplots, or other techniques to assess relationships between numerical variables.
-
-#correlation matrix
-
-#creating correlation based on key variables
-#corr = key.corr()
-#plt.figure(figsize=(10, 6))
-#plotting heatmap to understand correlation
 #seems that tpl and explosive efforts are highly correlated
-
 plt.figure(figsize=(10, 6))
 sns.regplot(x='Total Player Load', y='Explosive Efforts', data=df, scatter_kws={'color': 'darkblue'}, line_kws={'color': 'red'})
 #seems to be a linear relationship, which makes sense as more effort in explosive efforts would also increase total player load
@@ -129,7 +107,7 @@ sns.regplot(x='Total Player Load', y='Explosive Efforts', data=df, scatter_kws={
 
 
 
-### Explore Relationships
+## Explore Relationships
 >Dig into potential causal or descriptive relationships 
 ```{python}
 plt.figure(figsize=(8,6))

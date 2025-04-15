@@ -185,17 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#each-position-exerts-different-levels-of-player-loads-within-practices-and-games-how-do-we-ensure-that-each-position-is-getting-their-optimal-training-and-recovery-in-order-to-perform-best-in-games-and-prevent-injury" id="toc-each-position-exerts-different-levels-of-player-loads-within-practices-and-games-how-do-we-ensure-that-each-position-is-getting-their-optimal-training-and-recovery-in-order-to-perform-best-in-games-and-prevent-injury" class="nav-link active" data-scroll-target="#each-position-exerts-different-levels-of-player-loads-within-practices-and-games-how-do-we-ensure-that-each-position-is-getting-their-optimal-training-and-recovery-in-order-to-perform-best-in-games-and-prevent-injury"><span class="header-section-number">3.1</span> Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?</a></li>
-  <li><a href="#important-variables-within-this-dataset" id="toc-important-variables-within-this-dataset" class="nav-link" data-scroll-target="#important-variables-within-this-dataset"><span class="header-section-number">3.2</span> Important Variables within this Dataset</a>
-  <ul class="collapse">
-  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data"><span class="header-section-number">3.2.1</span> Cleaning the data</a></li>
-  </ul></li>
-  <li><a href="#summary-stats-of-important-variables" id="toc-summary-stats-of-important-variables" class="nav-link" data-scroll-target="#summary-stats-of-important-variables"><span class="header-section-number">4</span> summary stats of important variables</a>
-  <ul class="collapse">
-  <li><a href="#descriptive-statistics-distributions" id="toc-descriptive-statistics-distributions" class="nav-link" data-scroll-target="#descriptive-statistics-distributions"><span class="header-section-number">4.0.1</span> Descriptive Statistics &amp; Distributions</a></li>
-  <li><a href="#examine-correlations-if-relevant" id="toc-examine-correlations-if-relevant" class="nav-link" data-scroll-target="#examine-correlations-if-relevant"><span class="header-section-number">4.0.2</span> Examine Correlations (if relevant)</a></li>
-  <li><a href="#explore-relationships-if-relevant" id="toc-explore-relationships-if-relevant" class="nav-link" data-scroll-target="#explore-relationships-if-relevant"><span class="header-section-number">4.0.3</span> Explore Relationships (if relevant)</a></li>
-  </ul></li>
+  <li><a href="#important-variables-within-this-dataset" id="toc-important-variables-within-this-dataset" class="nav-link active" data-scroll-target="#important-variables-within-this-dataset"><span class="header-section-number">3.1</span> Important Variables within this Dataset</a></li>
+  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data"><span class="header-section-number">3.2</span> Cleaning the data</a></li>
+  <li><a href="#descriptive-statistics-distributions" id="toc-descriptive-statistics-distributions" class="nav-link" data-scroll-target="#descriptive-statistics-distributions"><span class="header-section-number">3.3</span> Descriptive Statistics &amp; Distributions</a></li>
+  <li><a href="#examine-correlations" id="toc-examine-correlations" class="nav-link" data-scroll-target="#examine-correlations"><span class="header-section-number">3.4</span> Examine Correlations</a></li>
+  <li><a href="#explore-relationships" id="toc-explore-relationships" class="nav-link" data-scroll-target="#explore-relationships"><span class="header-section-number">3.5</span> Explore Relationships</a></li>
   </ul>
 </nav>
     </div>
@@ -225,17 +219,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Michael Carlson, Kieran Perdue, Grace Pitts, and Alka Link</p>
 </blockquote>
 <p>It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.</p>
-<section id="each-position-exerts-different-levels-of-player-loads-within-practices-and-games-how-do-we-ensure-that-each-position-is-getting-their-optimal-training-and-recovery-in-order-to-perform-best-in-games-and-prevent-injury" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="each-position-exerts-different-levels-of-player-loads-within-practices-and-games-how-do-we-ensure-that-each-position-is-getting-their-optimal-training-and-recovery-in-order-to-perform-best-in-games-and-prevent-injury"><span class="header-section-number">3.1</span> Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?</h2>
+<p><strong>Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?</strong></p>
+<section id="important-variables-within-this-dataset" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="important-variables-within-this-dataset"><span class="header-section-number">3.1</span> Important Variables within this Dataset</h2>
+<ul>
+<li>Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall.</li>
+<li>Player Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.</li>
+<li>Explosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.</li>
+<li>Session Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.</li>
+<li>Session Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.</li>
+<li>Total IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.</li>
+<li>IMA/Min: Number of movements per minute. This is important to track endurance by position.</li>
+<li>Position: This is important for our analysis to compare all of our variables against position.</li>
+</ul>
 </section>
-<section id="important-variables-within-this-dataset" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="important-variables-within-this-dataset"><span class="header-section-number">3.2</span> Important Variables within this Dataset</h2>
-<blockquote class="blockquote">
-<p>Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. Player Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery. Explosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries. Session Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball. Session Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes. Total IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement. IMA/Min: Number of movements per minute. This is important to track endurance by position. Position: This is important for our analysis to compare all of our variables against position.</p>
-</blockquote>
-<section id="cleaning-the-data" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="cleaning-the-data"><span class="header-section-number">3.2.1</span> Cleaning the data</h3>
-<div id="6ba92a71" class="cell" data-execution_count="1">
+<section id="cleaning-the-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="cleaning-the-data"><span class="header-section-number">3.2</span> Cleaning the data</h2>
+<div id="ac43b75c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -243,14 +243,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="be854f54" class="cell" data-execution_count="2">
+<div id="a876381a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> pd.read_csv(<span class="st">'catapult season 1.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> pd.read_csv(<span class="st">'catapult season 2.csv'</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># merge the two seasons using concatonate ignoring their individual indexes</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([c1, c2], ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="95f85f84" class="cell" data-execution_count="3">
+<div id="abbdd10e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check for duplicates</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>duplicates <span class="op">=</span> df.duplicated()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of duplicates: </span><span class="sc">{</span>duplicates<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -260,83 +260,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#correct data types</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>missing_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Missing values: </span><span class="sc">{</span>missing_values<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#drop missing values</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#check data types</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>key_vars <span class="op">=</span> [</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Total Player Load'</span>, <span class="st">'Player Load Per Minute'</span>, <span class="st">'Explosive Efforts'</span>, <span class="st">'Session Total Jump'</span>, <span class="st">'Session Jumps Per Minute'</span>, <span class="st">'Total IMA'</span>, <span class="st">'IMA/Min'</span>, <span class="st">'Position'</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[key_vars]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#drop missing values</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#check data types</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>key_vars <span class="op">=</span> [</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Total Player Load'</span>, <span class="st">'Player Load Per Minute'</span>, <span class="st">'Explosive Efforts'</span>, <span class="st">'Session Total Jump'</span>, <span class="st">'Session Jumps Per Minute'</span>, <span class="st">'Total IMA'</span>, <span class="st">'IMA/Min'</span>, <span class="st">'Position'</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[key_vars]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of duplicates: 0
-Missing values: Date                                0
-About                               0
-Position                            0
-Period Number                       0
-Period                              0
-Total Acceleration Efforts          0
-Total Player Load                   0
-Player Load Per Minute              0
-IMA Accel Low                       0
-IMA Decel Low                       0
-IMA CoD Left Low                    0
-IMA CoD Right Low                   0
-IMA Accel Medium                    0
-IMA Decel Medium                    0
-IMA CoD Left Medium                 0
-IMA CoD Right Medium                0
-IMA Accel High                      0
-IMA Decel High                      0
-IMA Accel Total                     0
-IMA Decel Total                     0
-IMA CoD Left High                   0
-IMA CoD Right High                  0
-IMA Jump Count Low Band             0
-IMA Jump Count Med Band             0
-IMA Jump Count High Band            0
-Explosive Efforts                   0
-Session Total Jumps             26207
-Session Accel Low               26207
-Session Decel Low               26207
-Session CoD Left Low            26207
-Session CoD Right Low           26207
-Session Accel Med               26207
-Session Decel Medium            26207
-Session CoD Left Medium         26207
-Session CoD Right Medium        26207
-Session IMA Accel High          26207
-Session Decel High              26207
-Session CoD Left High           26207
-Session CoD Right High          26207
-Session IMA Accel Total         26207
-Session IMA Decel Total         26207
-Session Jump Count Low Band     26207
-Session Jump Count Med Band     26207
-Session Jump Count High Band    26207
-Session Total Jump              26207
-Session Jumps Per Minute        26207
-Total CoD Left                  26207
-Total CoD Right                 26207
-Total High IMA                  26207
-Total IMA                       26207
-IMA/Min                         28531
-event-uuid                          0
-group-uuid                          0
-dtype: int64</code></pre>
+<pre><code>Number of duplicates: 0</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="summary-stats-of-important-variables" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> summary stats of important variables</h1>
-<p>df[key_vars].describe()</p>
-<section id="descriptive-statistics-distributions" class="level3" data-number="4.0.1">
-<h3 data-number="4.0.1" class="anchored" data-anchor-id="descriptive-statistics-distributions"><span class="header-section-number">4.0.1</span> Descriptive Statistics &amp; Distributions</h3>
-<blockquote class="blockquote">
-<p>Provide summaries of important variables Use visualizations to explore distributions.</p>
-</blockquote>
-<div id="966986ac" class="cell" data-execution_count="4">
+<section id="descriptive-statistics-distributions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="descriptive-statistics-distributions"><span class="header-section-number">3.3</span> Descriptive Statistics &amp; Distributions</h2>
+<div id="83673bca" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[np.number])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#numeric = numeric.drop(columns=['Period Number'])</span></span>
@@ -344,14 +282,13 @@ dtype: int64</code></pre>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dataframe to store summary statistics</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> pd.DataFrame()</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics for each numeric column and add to the dataframe</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> each <span class="kw">in</span> numeric.columns:</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    stats <span class="op">=</span> numeric[each].describe()</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    summary[each] <span class="op">=</span> stats</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics for each numeric column and add to the dataframe</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> each <span class="kw">in</span> numeric.columns:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    stats <span class="op">=</span> numeric[each].describe()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    summary[each] <span class="op">=</span> stats</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
 <div>
 
 
@@ -455,7 +392,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="d66b8fa3" class="cell" data-execution_count="5">
+<div id="1457f2b7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>numeric_df <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'number'</span>])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -465,19 +402,17 @@ dtype: int64</code></pre>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, annot<span class="op">=</span><span class="va">False</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Correlation Matrix'</span>)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#data frame with key variables</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#key = df[['Player Load Per Minute', 'Session Total Jumps', 'Explosive Efforts', 'Total Player Load']]</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting distribution of Player Load Per Minute</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Player Load Per Minute'</span>], bins<span class="op">=</span><span class="dv">30</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Player Load Per Minute'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting distribution of Player Load Per Minute</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Player Load Per Minute'</span>], bins<span class="op">=</span><span class="dv">30</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Player Load Per Minute'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation with player load and position</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>sns.histplot(df, x<span class="op">=</span><span class="st">"Player Load Per Minute"</span>, hue<span class="op">=</span><span class="st">"Position"</span>, element<span class="op">=</span><span class="st">"step"</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation with player load and position</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>sns.histplot(df, x<span class="op">=</span><span class="st">"Player Load Per Minute"</span>, hue<span class="op">=</span><span class="st">"Position"</span>, element<span class="op">=</span><span class="st">"step"</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -501,25 +436,16 @@ dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="examine-correlations-if-relevant" class="level3" data-number="4.0.2">
-<h3 data-number="4.0.2" class="anchored" data-anchor-id="examine-correlations-if-relevant"><span class="header-section-number">4.0.2</span> Examine Correlations (if relevant)</h3>
+<section id="examine-correlations" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="examine-correlations"><span class="header-section-number">3.4</span> Examine Correlations</h2>
 <blockquote class="blockquote">
 <p>Interpret findings: what variables appear related?</p>
 </blockquote>
-<div id="50062676" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Use correlation matrices, scatterplots, or other techniques to assess relationships between numerical variables.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#correlation matrix</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#creating correlation based on key variables</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#corr = key.corr()</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.figure(figsize=(10, 6))</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting heatmap to understand correlation</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#seems that tpl and explosive efforts are highly correlated</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span><span class="st">'Total Player Load'</span>, y<span class="op">=</span><span class="st">'Explosive Efforts'</span>, data<span class="op">=</span>df, scatter_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'darkblue'</span>}, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'red'</span>})</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#seems to be a linear relationship, which makes sense as more effort in explosive efforts would also increase total player load</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="02fb77cc" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seems that tpl and explosive efforts are highly correlated</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span><span class="st">'Total Player Load'</span>, y<span class="op">=</span><span class="st">'Explosive Efforts'</span>, data<span class="op">=</span>df, scatter_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'darkblue'</span>}, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'red'</span>})</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#seems to be a linear relationship, which makes sense as more effort in explosive efforts would also increase total player load</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -529,34 +455,31 @@ dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="explore-relationships-if-relevant" class="level3" data-number="4.0.3">
-<h3 data-number="4.0.3" class="anchored" data-anchor-id="explore-relationships-if-relevant"><span class="header-section-number">4.0.3</span> Explore Relationships (if relevant)</h3>
+<section id="explore-relationships" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="explore-relationships"><span class="header-section-number">3.5</span> Explore Relationships</h2>
 <blockquote class="blockquote">
 <p>Dig into potential causal or descriptive relationships</p>
 </blockquote>
-<div id="3037e78c" class="cell" data-execution_count="7">
+<div id="a58a9621" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">"Position"</span>, y<span class="op">=</span><span class="st">"Total Player Load"</span>, data<span class="op">=</span>df)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Player Loads by Position"</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">"Position"</span>, y<span class="op">=</span><span class="st">"Explosive Efforts"</span>, data<span class="op">=</span>df)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Explosive Efforts by Position"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span><span class="st">"Position"</span>, col_wrap<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plot.<span class="bu">map</span>(plt.hist, <span class="st">"Total Player Load"</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"lightblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="st">"Histogram of Total Player Load by Position"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span><span class="st">"Position"</span>, col_wrap<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plot.<span class="bu">map</span>(plt.hist, <span class="st">"Player Load Per Minute"</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"lightblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="st">"Histogram of Player Load per Minute by Position"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">"Position"</span>, y<span class="op">=</span><span class="st">"Explosive Efforts"</span>, data<span class="op">=</span>df)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Explosive Efforts by Position"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span><span class="st">"Position"</span>, col_wrap<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plot.<span class="bu">map</span>(plt.hist, <span class="st">"Total Player Load"</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"lightblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="st">"Histogram of Total Player Load by Position"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span><span class="st">"Position"</span>, col_wrap<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plot.<span class="bu">map</span>(plt.hist, <span class="st">"Player Load Per Minute"</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"lightblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="st">"Histogram of Player Load per Minute by Position"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -588,7 +511,6 @@ dtype: int64</code></pre>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
