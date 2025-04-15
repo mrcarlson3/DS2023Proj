@@ -1,11 +1,10 @@
-## Group EDA 
+## Exploratory Data Analysis (Group) 
 >Michael Carlson, Kieran Perdue, Grace Pitts, and Alka Link
 
-**The Audience:**It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need. 
+**The Audience:** It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need. 
 
 
-**The Problem Statement:**
-Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?
+**The Problem Statement:** Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?
 
 
 ## Important Variables within this Dataset
@@ -31,7 +30,7 @@ import scipy as sp
 # load data
 c1 = pd.read_csv('catapult season 1.csv')
 c2 = pd.read_csv('catapult season 2.csv')
-# merge the two seasons using concatonate ignoring their individual indexes
+# merge the two seasons using concat ignoring their individual indexes
 df = pd.concat([c1, c2], ignore_index=True)
 ```
 ```{python}
@@ -41,12 +40,11 @@ print(f"Number of duplicates: {duplicates.sum()}")
 #drop duplicates
 df = df.drop_duplicates()
 #check for missing values
-
-#correct data types
 missing_values = df.isnull().sum()
 #drop missing values
 df = df.dropna()
-#check data types
+
+#keep only key features
 key_vars = [
     'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'
 ]
@@ -59,8 +57,8 @@ df = df[key_vars]
 
 #Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables
 numeric = df.select_dtypes(include=[np.number])
-#numeric = numeric.drop(columns=['Period Number'])
-numeric = numeric.dropna()
+
+numeric = numeric.dropna()  # Drop any rows with missing values
 
 # Create a new dataframe to store summary statistics
 summary = pd.DataFrame()
@@ -69,7 +67,7 @@ for each in numeric.columns:
     stats = numeric[each].describe()
     summary[each] = stats
 
-summary
+print(summary)
 ```
 ```{python}
 #Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.

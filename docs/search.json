@@ -2,11 +2,11 @@
   {
     "objectID": "eda.html",
     "href": "eda.html",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "",
-    "text": "3.1 Important Variables within this Dataset\nThe Audience:It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nThe Problem Statement: Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
+    "text": "3.1 Important Variables within this Dataset\nThe Audience: It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nThe Problem Statement: Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   },
   {
@@ -22,51 +22,51 @@
   {
     "objectID": "eda.html#important-variables-within-this-dataset",
     "href": "eda.html#important-variables-within-this-dataset",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "",
     "text": "Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall.\nPlayer Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.\nExplosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.\nSession Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.\nSession Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.\nTotal IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.\nIMA/Min: Number of movements per minute. This is important to track endurance by position.\nPosition: This is important for our analysis to compare all of our variables against position.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   },
   {
     "objectID": "eda.html#cleaning-the-data",
     "href": "eda.html#cleaning-the-data",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "3.2 Cleaning the data",
-    "text": "3.2 Cleaning the data\n\n# import libraries\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\nimport scipy as sp\n\n\n# load data\nc1 = pd.read_csv('catapult season 1.csv')\nc2 = pd.read_csv('catapult season 2.csv')\n# merge the two seasons using concatonate ignoring their individual indexes\ndf = pd.concat([c1, c2], ignore_index=True)\n\n\n#check for duplicates\nduplicates = df.duplicated()\nprint(f\"Number of duplicates: {duplicates.sum()}\")\n#drop duplicates\ndf = df.drop_duplicates()\n#check for missing values\n\n#correct data types\nmissing_values = df.isnull().sum()\n#drop missing values\ndf = df.dropna()\n#check data types\nkey_vars = [\n    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'\n]\ndf = df[key_vars]\n\nNumber of duplicates: 0",
+    "text": "3.2 Cleaning the data\n\n# import libraries\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\nimport scipy as sp\n\n\n# load data\nc1 = pd.read_csv('catapult season 1.csv')\nc2 = pd.read_csv('catapult season 2.csv')\n# merge the two seasons using concat ignoring their individual indexes\ndf = pd.concat([c1, c2], ignore_index=True)\n\n\n#check for duplicates\nduplicates = df.duplicated()\nprint(f\"Number of duplicates: {duplicates.sum()}\")\n#drop duplicates\ndf = df.drop_duplicates()\n#check for missing values\nmissing_values = df.isnull().sum()\n#drop missing values\ndf = df.dropna()\n\n#keep only key features\nkey_vars = [\n    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'\n]\ndf = df[key_vars]\n\nNumber of duplicates: 0",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   },
   {
     "objectID": "eda.html#descriptive-statistics-distributions",
     "href": "eda.html#descriptive-statistics-distributions",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "3.3 Descriptive Statistics & Distributions",
-    "text": "3.3 Descriptive Statistics & Distributions\n\n#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables\nnumeric = df.select_dtypes(include=[np.number])\n#numeric = numeric.drop(columns=['Period Number'])\nnumeric = numeric.dropna()\n\n# Create a new dataframe to store summary statistics\nsummary = pd.DataFrame()\n# Calculate summary statistics for each numeric column and add to the dataframe\nfor each in numeric.columns:\n    stats = numeric[each].describe()\n    summary[each] = stats\n\nsummary\n\n\n\n\n\n\n\n\nTotal Player Load\nPlayer Load Per Minute\nExplosive Efforts\nSession Total Jump\nSession Jumps Per Minute\nTotal IMA\nIMA/Min\n\n\n\n\ncount\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n\n\nmean\n148.872053\n5.655873\n10.508233\n114.470911\n1.386937\n824.243688\n47.205060\n\n\nstd\n86.035006\n1.713292\n15.071248\n50.033823\n0.568696\n317.066287\n52.545666\n\n\nmin\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n\n\n25%\n102.256000\n4.400000\n2.000000\n79.500000\n0.970000\n621.000000\n21.085000\n\n\n50%\n143.542000\n5.400000\n6.000000\n108.000000\n1.320000\n862.000000\n31.370000\n\n\n75%\n190.236500\n6.800000\n11.000000\n141.500000\n1.750000\n1034.500000\n42.675000\n\n\nmax\n534.156000\n12.700000\n103.000000\n329.000000\n4.750000\n1857.000000\n310.430000\n\n\n\n\n\n\n\n\n#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.\nnumeric_df = df.select_dtypes(include=['number'])\n\n# Create correlation matrix\nplt.figure(figsize=(12, 8))\ncorr = numeric_df.corr()\nsns.heatmap(corr, cmap='coolwarm', annot=False, linewidths=0.5)\nplt.title('Correlation Matrix')\nplt.show()\n\nplt.figure(figsize=(10, 6))\n#Plotting distribution of Player Load Per Minute\nsns.histplot(df['Player Load Per Minute'], bins=30, kde=True)\nplt.title('Distribution of Player Load Per Minute')\nplt.show()\nplt.figure(figsize=(10, 6))\n\n# correlation with player load and position\nsns.histplot(df, x=\"Player Load Per Minute\", hue=\"Position\", element=\"step\", common_norm=False)\nplt.show()",
+    "text": "3.3 Descriptive Statistics & Distributions\n\n#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables\nnumeric = df.select_dtypes(include=[np.number])\n\nnumeric = numeric.dropna()  # Drop any rows with missing values\n\n# Create a new dataframe to store summary statistics\nsummary = pd.DataFrame()\n# Calculate summary statistics for each numeric column and add to the dataframe\nfor each in numeric.columns:\n    stats = numeric[each].describe()\n    summary[each] = stats\n\nsummary\n\n\n\n\n\n\n\n\nTotal Player Load\nPlayer Load Per Minute\nExplosive Efforts\nSession Total Jump\nSession Jumps Per Minute\nTotal IMA\nIMA/Min\n\n\n\n\ncount\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n911.000000\n\n\nmean\n148.872053\n5.655873\n10.508233\n114.470911\n1.386937\n824.243688\n47.205060\n\n\nstd\n86.035006\n1.713292\n15.071248\n50.033823\n0.568696\n317.066287\n52.545666\n\n\nmin\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n\n\n25%\n102.256000\n4.400000\n2.000000\n79.500000\n0.970000\n621.000000\n21.085000\n\n\n50%\n143.542000\n5.400000\n6.000000\n108.000000\n1.320000\n862.000000\n31.370000\n\n\n75%\n190.236500\n6.800000\n11.000000\n141.500000\n1.750000\n1034.500000\n42.675000\n\n\nmax\n534.156000\n12.700000\n103.000000\n329.000000\n4.750000\n1857.000000\n310.430000\n\n\n\n\n\n\n\n\n#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.\nnumeric_df = df.select_dtypes(include=['number'])\n\n# Create correlation matrix\nplt.figure(figsize=(12, 8))\ncorr = numeric_df.corr()\nsns.heatmap(corr, cmap='coolwarm', annot=False, linewidths=0.5)\nplt.title('Correlation Matrix')\nplt.show()\n\nplt.figure(figsize=(10, 6))\n#Plotting distribution of Player Load Per Minute\nsns.histplot(df['Player Load Per Minute'], bins=30, kde=True)\nplt.title('Distribution of Player Load Per Minute')\nplt.show()\nplt.figure(figsize=(10, 6))\n\n# correlation with player load and position\nsns.histplot(df, x=\"Player Load Per Minute\", hue=\"Position\", element=\"step\", common_norm=False)\nplt.show()",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   },
   {
     "objectID": "eda.html#examine-correlations",
     "href": "eda.html#examine-correlations",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "3.4 Examine Correlations",
     "text": "3.4 Examine Correlations\n\nInterpret findings: what variables appear related?\n\n\n#seems that tpl and explosive efforts are highly correlated\nplt.figure(figsize=(10, 6))\nsns.regplot(x='Total Player Load', y='Explosive Efforts', data=df, scatter_kws={'color': 'darkblue'}, line_kws={'color': 'red'})\n#seems to be a linear relationship, which makes sense as more effort in explosive efforts would also increase total player load",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   },
   {
     "objectID": "eda.html#explore-relationships",
     "href": "eda.html#explore-relationships",
-    "title": "3  Group EDA",
+    "title": "3  Exploratory Data Analysis (Group)",
     "section": "3.5 Explore Relationships",
     "text": "3.5 Explore Relationships\n\nDig into potential causal or descriptive relationships\n\n\nplt.figure(figsize=(8,6))\nsns.boxplot(x=\"Position\", y=\"Total Player Load\", data=df)\nplt.title(\"Player Loads by Position\")\nplt.show()\n\nplt.figure(figsize=(8,6))\nsns.boxplot(x=\"Position\", y=\"Explosive Efforts\", data=df)\nplt.title(\"Explosive Efforts by Position\")\nplt.show()\n\nplot = sns.FacetGrid(df, col=\"Position\", col_wrap=3, sharex=True, sharey=True)\nplot.map(plt.hist, \"Total Player Load\", bins=30, color=\"lightblue\", edgecolor=\"black\")\nplot.fig.suptitle(\"Histogram of Total Player Load by Position\", y=1.02)\nplt.show()\n\nplot = sns.FacetGrid(df, col=\"Position\", col_wrap=3, sharex=True, sharey=True)\nplot.map(plt.hist, \"Player Load Per Minute\", bins=30, color=\"lightblue\", edgecolor=\"black\")\nplot.fig.suptitle(\"Histogram of Player Load per Minute by Position\", y=1.02)\nplt.show()",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Group EDA</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exploratory Data Analysis (Group)</span>"
     ]
   }
 ]
