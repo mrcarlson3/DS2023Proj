@@ -1,4 +1,8 @@
+# Initial Graphs (Group) 
+>Michael Carlson, Kieran Perdue, Grace Pitts, and Alka Link
 
+
+* Importing libraries
 ```{python}
 # import libraries
 import pandas as pd
@@ -6,8 +10,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import scipy as sp
+import plotly.express as px
+import plotly.graph_objects as go
 ```
 
+* Loading and cleaning the data
 ```{python}
 # load data
 c1 = pd.read_csv('catapult season 1.csv')
@@ -24,7 +31,9 @@ key_vars = [
 ]
 df = df[key_vars]
 ```
+## Data Visualizations
 
+### Histogram of Total IMA by Position
 ```{python}
 
 # add data
@@ -50,5 +59,75 @@ plt.xlabel("", color='gray')
 
 # Show the plot
 plt.show()
+
+```
+
+### Scatterplot of Total Player Load vs Explosive Efforts by Position
+
+```{python}
+# Interactive scatter plot of Total Player Load vs Explosive Efforts by Position
+
+#scatter plot w/ plotly
+fig = px.scatter(df, 
+                 x="Total Player Load", 
+                 y="Explosive Efforts", 
+                 #coloring by position
+                 color="Position", 
+                 # reducing the excess info on tool tip
+                 hover_data={"Total Player Load": True, "Explosive Efforts": True, "Position": False}, 
+                 #create trendline using ordinary least squares
+                 trendline="ols",
+                 #create separate graphs for each position
+                 facet_col='Position',
+)
+
+# add gridlines as well as reduce heigh of graph to remove excess space
+fig.update_yaxes(range=[0, 80], showgrid=True, gridcolor='lightgray') 
+fig.update_xaxes(showgrid=True, gridcolor='lightgray')  
+
+#remove individual position tile annotations for cleanliness
+for annotation in fig.layout.annotations:
+    if annotation.text.startswith("Position="):
+        annotation.text = annotation.text.replace("Position=", "")
+
+# cleaning up the graph
+fig.update_layout(
+    #creating title
+    title="Total Player Load vs Explosive Efforts by Position",
+    #x axis title and grid color
+    xaxis=dict(
+        title="Total Player Load",
+        showgrid=True,
+        gridcolor='lightgray'
+    ),
+    #y axis title and grid color
+    yaxis=dict(
+        title="Explosive Efforts",
+        showgrid=True,
+        gridcolor='lightgray',
+    ),
+    #remove background color, set font, and remove legend
+    plot_bgcolor='white',
+    font_family='Georgia',
+    showlegend=False,
+    #add margin spacing
+    margin=dict(t=55, b=50, l=50, r=50)
+)
+
+#remove individual x axis titles
+fig.update_xaxes(title_text=None)
+
+#adding overall x axist title
+fig.add_annotation(
+    text="Total Player Load",
+    xref="paper", yref="paper",
+    x=0.5, y=-0.2,
+    showarrow=False,
+    font=dict(family="Georgia", size=14, color="black"),
+    align="center",
+)
+
+
+fig.show()
 
 ```
