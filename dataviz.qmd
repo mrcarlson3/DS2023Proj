@@ -111,13 +111,13 @@ fig.update_layout(
     font_family='Georgia',
     showlegend=False,
     #add margin spacing
-    margin=dict(t=55, b=50, l=50, r=50)
+    margin=dict(t=55, b=60, l=50, r=50)
 )
 
 #remove individual x axis titles
 fig.update_xaxes(title_text=None)
 
-#adding overall x axist title
+#adding overall x axis title
 fig.add_annotation(
     text="Total Player Load",
     xref="paper", yref="paper",
