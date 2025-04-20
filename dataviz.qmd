@@ -36,10 +36,11 @@ df = df[key_vars]
 ### Histogram of Total IMA by Position
 ```{python}
 
+
 # add data
-sns.histplot(df[df['Position'] == 'Guard'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#4895ef', label='Guard')
-sns.histplot(df[df['Position'] == 'Forward'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#427AA1', label='Forward')
-sns.histplot(df[df['Position'] == 'Center'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#064789', label='Center')
+sns.histplot(df[df['Position'] == 'Guard'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#EF553B', label='Guard')
+sns.histplot(df[df['Position'] == 'Forward'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#636EFA', label='Forward')
+sns.histplot(df[df['Position'] == 'Center'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#00CC96', label='Center')
 
 # Making it look readable
 plt.title("Total IMA by Position", font='Georgia', fontsize=14, fontweight='bold')
