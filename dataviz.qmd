@@ -1,0 +1,54 @@
+
+```{python}
+# import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import scipy as sp
+```
+
+```{python}
+# load data
+c1 = pd.read_csv('catapult season 1.csv')
+c2 = pd.read_csv('catapult season 2.csv')
+# merge the two seasons using concat ignoring their individual indexes
+df = pd.concat([c1, c2], ignore_index=True)
+df = df.drop_duplicates()
+
+df = df.dropna()
+
+#keep only key features
+key_vars = [
+    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'
+]
+df = df[key_vars]
+```
+
+```{python}
+
+# add data
+sns.histplot(df[df['Position'] == 'Guard'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#4895ef', label='Guard')
+sns.histplot(df[df['Position'] == 'Forward'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#427AA1', label='Forward')
+sns.histplot(df[df['Position'] == 'Center'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#064789', label='Center')
+
+# Making it look readable
+plt.title("Total IMA by Position", font='Georgia', fontsize=14, fontweight='bold')
+plt.legend(loc='upper right', fontsize=10, title_fontsize=12, frameon=False)
+plt.gca().spines['top'].set_visible(False)
+plt.gca().spines['right'].set_visible(False)
+plt.gca().spines['left'].set_visible(False)
+plt.gca().spines['bottom'].set_visible(False)
+plt.ylabel("")
+plt.tick_params(axis='x', which='both', length=0)
+plt.tick_params(axis='y', which='both', length=0)
+plt.gca().tick_params(axis='y', colors='gray')
+plt.gca().tick_params(axis='x', colors='gray')
+plt.grid(True, which='major', color='lightgray', linestyle=':', zorder=0)
+plt.ylabel("Total IMA", color='gray')
+plt.xlabel("", color='gray')
+
+# Show the plot
+plt.show()
+
+```
