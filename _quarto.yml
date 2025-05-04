@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 book:
-  title: "DS2023Demo"
+  title: "DS2023 Catapult Group 2 Final Project"
+  subtitle: "Preventing Fatigue and Injury in Collegiate Basketball"
   author: "Alka Link, Grace Pitts, Kieran Perdue, Michael Carlson"
   favicon: logo.png
   description: "A demo book for DS2023"
@@ -28,7 +29,7 @@ book:
 format:
   html:
     theme:
-      light: minty
+      light: superhero
     code-fold: false
     backgroundcolor: '#FFFFFF'
 
