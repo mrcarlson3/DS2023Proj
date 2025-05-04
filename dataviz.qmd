@@ -1,6 +1,4 @@
 # Initial Graphs (Group) 
->Michael Carlson, Kieran Perdue, Grace Pitts, and Alka Link
-
 
 * Importing libraries
 ```{python}
@@ -12,25 +10,11 @@ import numpy as np
 import scipy as sp
 import plotly.express as px
 import plotly.graph_objects as go
+from datalearning import df
 ```
 
 * Loading and cleaning the data
-```{python}
-# load data
-c1 = pd.read_csv('catapult season 1.csv')
-c2 = pd.read_csv('catapult season 2.csv')
-# merge the two seasons using concat ignoring their individual indexes
-df = pd.concat([c1, c2], ignore_index=True)
-df = df.drop_duplicates()
 
-df = df.dropna()
-
-#keep only key features
-key_vars = [
-    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'
-]
-df = df[key_vars]
-```
 ## Data Visualizations
 
 ### Histogram of Total IMA by Position
@@ -70,7 +54,7 @@ plt.show()
 
 #scatter plot w/ plotly
 fig = px.scatter(df, 
-                 x="Total Player Load", 
+                 x="Player Load Per Minute", 
                  y="Explosive Efforts", 
                  #coloring by position
                  color="Position", 
@@ -179,3 +163,5 @@ fig.update_layout(
 
 fig.show() #Plots graph
 ```
+
+

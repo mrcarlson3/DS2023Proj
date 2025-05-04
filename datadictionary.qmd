@@ -1,0 +1,28 @@
+```{python}
+import pandas as pd
+from datalearning import df
+
+
+descriptions = {
+    'column1': 'Description of column1',
+    'column2': 'Description of column2',
+    'column3': 'Description of column3',
+    'column4': 'Description of column4',
+    'column5': 'Description of column5',
+    'column6': 'Description of column6',
+    'column7': 'Description of column7',
+    'column8': 'Description of column8',
+
+}
+
+data_dict = pd.DataFrame({
+    'Variable': df.columns,
+    'Description': [descriptions.get(col, '') for col in df.columns],
+    'Data Type': [df[col].dtype for col in df.columns]
+})
+
+from IPython.display import display, HTML
+
+display(HTML(data_dict.to_html()))
+
+```

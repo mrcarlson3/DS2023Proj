@@ -1,21 +1,14 @@
 ## Exploratory Data Analysis (Group) 
->Michael Carlson, Kieran Perdue, Grace Pitts, and Alka Link
-
-**The Audience:** It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need. 
-
-
-**The Problem Statement:** Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?
-
 
 ## Important Variables within this Dataset
-* Total Player Load: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. 
-* Player Load Per Minute: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.
-* Explosive Efforts: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.
-* Session Total Jump: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.
-* Session Jumps Per Minute: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.
-* Total IMA: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.
-* IMA/Min: Number of movements per minute. This is important to track endurance by position.
-* Position: This is important for our analysis to compare all of our variables against position. 
+* ``Total Player Load``: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. 
+* ``Player Load Per Minute``: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.
+* ``Explosive Efforts``: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.
+* ``Session Total Jump``: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.
+* ``Session Jumps Per Minute``: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.
+* ``Total IMA``: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.
+* ``IMA/Min``: Number of movements per minute. This is important to track endurance by position.
+* ``Position``: This is important for our analysis to compare all of our variables against position. 
 
 ## Cleaning the data
 ```{python}
@@ -25,30 +18,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import scipy as sp
-```
-```{python}
-# load data
-c1 = pd.read_csv('catapult season 1.csv')
-c2 = pd.read_csv('catapult season 2.csv')
-# merge the two seasons using concat ignoring their individual indexes
-df = pd.concat([c1, c2], ignore_index=True)
-```
-```{python}
-#check for duplicates
-duplicates = df.duplicated()
-print(f"Number of duplicates: {duplicates.sum()}")
-#drop duplicates
-df = df.drop_duplicates()
-#check for missing values
-missing_values = df.isnull().sum()
-#drop missing values
-df = df.dropna()
-
-#keep only key features
-key_vars = [
-    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'
-]
-df = df[key_vars]
+from datalearning import df 
 ```
 
 ## Descriptive Statistics & Distributions
