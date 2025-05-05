@@ -31,7 +31,7 @@ uva = uva[key_vars]
 uva['Date'] = pd.to_datetime(uva['Date'], errors='coerce')
 
 # Drop rows with missing critical data
-#uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position'])
+#uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position', 'IMA/Min'])
 
 # Create a 'Month' column
 uva['Month'] = uva['Date'].dt.to_period('M').dt.to_timestamp()
@@ -39,7 +39,9 @@ uva['Month'] = uva['Date'].dt.to_period('M').dt.to_timestamp()
 # Group by Month and Position, and average key metrics
 monthly_avg = uva.groupby(['Month', 'Position'], as_index=False).agg({
     'Player Load Per Minute': 'mean',
-    'Explosive Efforts': 'mean'
+    'Explosive Efforts': 'mean',
+    'IMA/Min': 'mean',
+    'Total IMA': 'mean',
 })
 
 fig_load = px.line(
@@ -76,6 +78,26 @@ fig_effort = px.line(
 fig_effort.update_layout(
     xaxis_title='Month',
     yaxis_title='Avg Explosive Efforts',
+    hovermode='x unified',
+     xaxis=dict(
+        range=['2023-10-01', '2024-03-30']  # Set desired zoom window
+    )
+)
+
+fig_effort.show()
+
+fig_effort = px.line(
+    monthly_avg,
+    x='Month',
+    y='Total IMA',
+    color='Position',
+    markers=True,
+    title='Monthly Average: Total IMA by Position'
+)
+
+fig_effort.update_layout(
+    xaxis_title='Month',
+    yaxis_title='Avg Total IMA',
     hovermode='x unified',
      xaxis=dict(
         range=['2023-10-01', '2024-03-30']  # Set desired zoom window

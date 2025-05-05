@@ -1,0 +1,82 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Data Cleaning"
+      ],
+      "id": "acd6db57"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# import libraries\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import numpy as np\n",
+        "import scipy as sp"
+      ],
+      "id": "7cdc6106",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# load data\n",
+        "c1 = pd.read_csv('catapult season 1.csv')\n",
+        "c2 = pd.read_csv('catapult season 2.csv')\n",
+        "# merge the two seasons using concat ignoring their individual indexes\n",
+        "df = pd.concat([c1, c2], ignore_index=True)"
+      ],
+      "id": "54d5048c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#check for duplicates\n",
+        "duplicates = df.duplicated()\n",
+        "print(f\"Number of duplicates: {duplicates.sum()}\")\n",
+        "#drop duplicates\n",
+        "df = df.drop_duplicates()\n",
+        "#check for missing values\n",
+        "missing_values = df.isnull().sum()\n",
+        "#drop missing values\n",
+        "df = df.dropna()\n",
+        "\n",
+        "#keep only key features\n",
+        "key_vars = [\n",
+        "    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date'\n",
+        "]\n",
+        "df = df[key_vars]\n",
+        "\n",
+        "# Convert 'Date' to datetime\n",
+        "df['Date'] = pd.to_datetime(df['Date'], errors='coerce')\n",
+        "\n",
+        "\n",
+        "# Create a 'Month' column\n",
+        "df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()"
+      ],
+      "id": "83d0ad5a",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/opt/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

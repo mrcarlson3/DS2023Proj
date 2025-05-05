@@ -17,160 +17,13 @@ from datalearning import df
 
 ## Data Visualizations
 
-### Histogram of Total IMA by Position
+### Line graphs
 ```{python}
-
-
-# add data
-sns.histplot(df[df['Position'] == 'Guard'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#EF553B', label='Guard')
-sns.histplot(df[df['Position'] == 'Forward'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#636EFA', label='Forward')
-sns.histplot(df[df['Position'] == 'Center'], x="Total IMA", element="step", common_norm=False, kde=True, bins=25, zorder=2, color='#00CC96', label='Center')
-
-# Making it look readable
-plt.title("Total IMA by Position", font='Georgia', fontsize=14, fontweight='bold')
-plt.legend(loc='upper right', fontsize=10, title_fontsize=12, frameon=False)
-plt.gca().spines['top'].set_visible(False)
-plt.gca().spines['right'].set_visible(False)
-plt.gca().spines['left'].set_visible(False)
-plt.gca().spines['bottom'].set_visible(False)
-plt.ylabel("")
-plt.tick_params(axis='x', which='both', length=0)
-plt.tick_params(axis='y', which='both', length=0)
-plt.gca().tick_params(axis='y', colors='gray')
-plt.gca().tick_params(axis='x', colors='gray')
-plt.grid(True, which='major', color='lightgray', linestyle=':', zorder=0)
-plt.ylabel("Total IMA", color='gray')
-plt.xlabel("", color='gray')
-
-# Show the plot
-plt.show()
-
-```
-
-### Scatterplot of Total Player Load vs Explosive Efforts by Position
-
-```{python}
-# Interactive scatter plot of Total Player Load vs Explosive Efforts by Position
-
-#scatter plot w/ plotly
-fig = px.scatter(df, 
-                 x="Player Load Per Minute", 
-                 y="Explosive Efforts", 
-                 #coloring by position
-                 color="Position", 
-                 # reducing the excess info on tool tip
-                 hover_data={"Total Player Load": True, "Explosive Efforts": True, "Position": False}, 
-                 #create trendline using ordinary least squares
-                 trendline="ols",
-                 #create separate graphs for each position
-                 facet_col='Position',
-)
-
-# add gridlines as well as reduce heigh of graph to remove excess space
-fig.update_yaxes(range=[0, 80], showgrid=True, gridcolor='lightgray') 
-fig.update_xaxes(showgrid=True, gridcolor='lightgray')  
-
-#remove individual position tile annotations for cleanliness
-for annotation in fig.layout.annotations:
-    if annotation.text.startswith("Position="):
-        annotation.text = annotation.text.replace("Position=", "")
-
-
-# cleaning up the graph
-fig.update_layout(
-    #creating title
-    title="Total Player Load vs Explosive Efforts by Position",
-    #x axis title and grid color
-    xaxis=dict(
-        showgrid=True,
-        gridcolor='lightgray'
-    ),
-    #y axis title and grid color
-    yaxis=dict(
-        title="Explosive Efforts",
-        showgrid=True,
-        gridcolor='lightgray',
-    ),
-    #remove background color, set font, and remove legend
-    plot_bgcolor='white',
-    font_family='Georgia',
-    showlegend=False,
-    #add margin spacing
-    margin=dict(t=55, b=60, l=50, r=50)
-)
-
-#adding overall x axis title
-fig.add_annotation(
-    text="Total Player Load",
-    xref="paper", yref="paper",
-    x=0.5, y=-0.15,
-    showarrow=False,
-    font=dict(family="Georgia", size=14, color="black"),
-    align="center",
-)
-
-#removing individual x axis titles
-fig.update_xaxes(title_text=None)
-
-fig.show()
-
-```
-
-### Boxplot of Player Load per Minute by Position
-```{python}
-#Interactive box plot illustrating Player Load per Minute by Position
-
-fig = px.box( #Uses plotly to create graph
-    df,
-    x="Position",
-    y="Player Load Per Minute",
-    color="Position",
-    points=False
-)
-
-fig.update_layout(
-    title={
-        "text": "<b>Player Load per Minute by Position</b>",  #Bolds and centers title
-        "x": 0.5,
-        "xanchor": "center"
-    },
-    yaxis_title="Player Load per Minute",
-    xaxis_title="",
-    plot_bgcolor='white',
-    font=dict(
-        family="Georgia", #Changes font
-        size=14,  #Increase font size for labels and ticks
-        color='black'
-    ),
-    title_font=dict(
-        family="Georgia", #Title font
-        size=18,  #Larger font for the title
-        color='black'
-    ),
-    xaxis=dict(
-        showgrid=True, #Adds grid lines on xaxis
-        gridcolor='lightgray',
-        zeroline=False
-    ),
-    yaxis=dict( #Adds grid lines on yaxis
-        showgrid=True,
-        gridcolor='lightgray',
-        zeroline=False
-    ),
-
-     showlegend=False, #Takes away legend
-)
-
-fig.show() #Plots graph
-```
-
-
-## Line graphs
-```{python}
-# Group by Month and Position, and average key metrics
+#line graph of player load per minute 
 monthly_avg = df.groupby(['Month', 'Position'], as_index=False).agg({
     'Player Load Per Minute': 'mean',
-    'Explosive Efforts': 'mean'
+    'Explosive Efforts': 'mean',
+    'Total IMA': 'mean'
 })
 
 fig_load = px.line(
@@ -215,4 +68,26 @@ fig_effort.update_layout(
 
 fig_effort.show()
 
+```
+```{python}
+
+fig_effort = px.line(
+    monthly_avg,
+    x='Month',
+    y='Total IMA',
+    color='Position',
+    markers=True,
+    title='Monthly Average: Total IMA by Position'
+)
+
+fig_effort.update_layout(
+    xaxis_title='Month',
+    yaxis_title='Avg Total IMA',
+    hovermode='x unified',
+     xaxis=dict(
+        range=['2023-10-01', '2024-03-30']  # Set desired zoom window
+    )
+)
+
+fig_effort.show()
 ```

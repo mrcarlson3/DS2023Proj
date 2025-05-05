@@ -1,4 +1,4 @@
-## Cleaning the data
+## Data Cleaning
 ```{python}
 # import libraries
 import pandas as pd

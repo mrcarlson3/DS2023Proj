@@ -1,29 +1,15 @@
 ## Data Dictionary
-```{python}
-import pandas as pd
-from datalearning import df
+```{markdown}
+| Variable Name              | Data Type | Description                                              |
+|---------------------------|-----------|----------------------------------------------------------|
+| Total Player Load         | float64   | Total physical effort during a session                   |
+| Player Load Per Minute    | float64   | Effort per minute (intensity)                            |
+| Explosive Efforts         | int64     | Number of high-intensity movements                       |
+| Session Total Jump        | float64   | Total jumps in a session                                 |
+| Session Jumps Per Minute  | float64   | Jumps per minute (jump intensity)                        |
+| Total IMA                 | float64   | Total number of movements (all intensities)              |
+| IMA/Min                   | float64   | Number of movements per minute                           |
+| Date                      | datetime  | Date the session took place                              |
+| Position                  | object    | Player's on-court role (Guard, Forward, Center)          |
 
-
-descriptions = {
-    'column1': 'Description of column1',
-    'column2': 'Description of column2',
-    'column3': 'Description of column3',
-    'column4': 'Description of column4',
-    'column5': 'Description of column5',
-    'column6': 'Description of column6',
-    'column7': 'Description of column7',
-    'column8': 'Description of column8',
-
-}
-
-data_dict = pd.DataFrame({
-    'Variable': df.columns,
-    'Description': [descriptions.get(col, '') for col in df.columns],
-    'Data Type': [df[col].dtype for col in df.columns]
-})
-
-from IPython.display import display, HTML
-
-display(HTML(data_dict.to_html()))
-
-``` 
+```
