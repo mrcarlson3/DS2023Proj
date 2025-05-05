@@ -20,23 +20,23 @@ from datalearning import df
 ### Line graphs
 ```{python}
 #line graph of player load per minute 
-monthly_avg = df.groupby(['Month', 'Position'], as_index=False).agg({
+monthly_avg = df.groupby(['Month', 'Position'], as_index=False).agg({ #This creates a new dataframe which groups data by month and position and takes the average of each
     'Player Load Per Minute': 'mean',
     'Explosive Efforts': 'mean',
     'Total IMA': 'mean'
 })
 
-fig_load = px.line(
-    monthly_avg,
-    x='Month',
-    y='Player Load Per Minute',
-    color='Position',
-    markers=True,
-    title='Monthly Average: Player Load Per Minute by Position'
+fig_load = px.line( #Makes a line graph with 3 lines showing average Player Load Per Minute over time by Position
+    monthly_avg, #Uses the data from the monthly_avg dataframe
+    x='Month', 
+    y='Player Load Per Minute', 
+    color='Position', #Colors each line by position
+    markers=True, #Adds a marker at each data point
+    title='Monthly Average: Player Load Per Minute by Position' #Adds title
 )
 
-fig_load.update_layout(
-    xaxis_title='Month',
+fig_load.update_layout(  #Adds labels and makes the graph interactive
+    xaxis_title='Month', 
     yaxis_title='Avg Player Load Per Minute',
     hovermode='x unified',
      xaxis=dict(
@@ -44,21 +44,22 @@ fig_load.update_layout(
     )
 )
 
-fig_load.show()
+fig_load.show() #Shows plot
 
+The graph above illustrates how player load per minute has fluctuated throughout the past two seasons, emphasizing the importance of adjusting training and recovery plans throughout the year.
 ```
 ```{python}
-fig_effort = px.line(
-    monthly_avg,
+fig_effort = px.line( #Makes a line graph with 3 lines showing average Expolosive Efforts over time by Position
+    monthly_avg, #Uses the new monthly_avg dataset
     x='Month',
     y='Explosive Efforts',
-    color='Position',
-    markers=True,
-    title='Monthly Average: Explosive Efforts by Position'
+    color='Position', #Each line is a different color which correlates with position
+    markers=True, #Adds markers at each data point
+    title='Monthly Average: Explosive Efforts by Position' #Adds title
 )
 
-fig_effort.update_layout(
-    xaxis_title='Month',
+fig_effort.update_layout(  #Adds labels and makes the graph interactive
+    xaxis_title='Month', 
     yaxis_title='Avg Explosive Efforts',
     hovermode='x unified',
      xaxis=dict(
@@ -66,21 +67,23 @@ fig_effort.update_layout(
     )
 )
 
-fig_effort.show()
+fig_effort.show() #Displays plot
+
+The graph above illustrates how Explosive Efforts by position decreased initially, then increased significantly for each position for the majority of the rest of the season.
 
 ```
 ```{python}
 
-fig_effort = px.line(
-    monthly_avg,
+fig_effort = px.line( #Makes a line graph with 3 lines showing average Total IMA over time by Position
+    monthly_avg, #Uses the dataframe monthly_avg
     x='Month',
     y='Total IMA',
-    color='Position',
-    markers=True,
-    title='Monthly Average: Total IMA by Position'
+    color='Position', #Colors each line by position
+    markers=True, #Adds markers to each data point
+    title='Monthly Average: Total IMA by Position' #Adds graph title
 )
 
-fig_effort.update_layout(
+fig_effort.update_layout( #Adds labels and makes the graph interactive
     xaxis_title='Month',
     yaxis_title='Avg Total IMA',
     hovermode='x unified',
@@ -89,5 +92,6 @@ fig_effort.update_layout(
     )
 )
 
-fig_effort.show()
+fig_effort.show() #Displays plot
 ```
+#As seen in the graph above, Total IMA has decreased for the majority of the past two seasons, with little variability between positions. 

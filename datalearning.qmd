@@ -28,8 +28,8 @@ missing_values = df.isnull().sum()
 df = df.dropna()
 
 We decided to only keep these key features because they represent the metrics we believed would be most relevant to our analysis and produce the most interesting findings. These variables provide meaningful insights into player workload, intensity, and performance. We believe that focusing on these metrics will help us tell the most accurate and compelling story about athlete training and recovery and allow us to draw clearer conclusions.
-#keep only key features
-key_vars = [
+
+key_vars = [ #keep only key features
     'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date'
 ]
 df = df[key_vars]
