@@ -70,12 +70,16 @@ fig_effort.show()
 
 ```
 ```{python}
-
+monthly_avg = df.groupby(['Month', 'Session Type'], as_index=False).agg({
+    'Player Load Per Minute': 'mean',
+    'Explosive Efforts': 'mean',
+    'Total IMA': 'mean'
+})
 fig_effort = px.line(
     monthly_avg,
     x='Month',
     y='Total IMA',
-    color='Position',
+    color='Session Type',
     markers=True,
     title='Monthly Average: Total IMA by Position'
 )
