@@ -13,6 +13,7 @@ c2 = pd.read_csv('catapult season 2.csv')
 # merge the two seasons using concat ignoring their individual indexes
 df = pd.concat([c1, c2], ignore_index=True)
 
+###
 #check for duplicates
 duplicates = df.duplicated()
 duplicates.sum()
