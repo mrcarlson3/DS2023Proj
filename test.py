@@ -31,7 +31,7 @@ uva = uva[key_vars]
 uva['Date'] = pd.to_datetime(uva['Date'], errors='coerce')
 
 # Drop rows with missing critical data
-uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position'])
+#uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position'])
 
 # Create a 'Month' column
 uva['Month'] = uva['Date'].dt.to_period('M').dt.to_timestamp()

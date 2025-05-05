@@ -25,7 +25,12 @@ missing_values = df.isnull().sum()
 
 #keep only key features
 key_vars = [
-    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position'
+    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date'
 ]
 df = df[key_vars]
 
+# Convert 'Date' to datetime
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+
+# Create a 'Month' column
+df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()
