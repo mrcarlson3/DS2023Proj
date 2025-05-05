@@ -1,15 +1,12 @@
 ## Data Dictionary
-```{markdown}
-| Variable Name              | Data Type | Description                                              |
-|---------------------------|-----------|----------------------------------------------------------|
-| Total Player Load         | float64   | Total physical effort during a session                   |
-| Player Load Per Minute    | float64   | Effort per minute (intensity)                            |
-| Explosive Efforts         | int64     | Number of high-intensity movements                       |
-| Session Total Jump        | float64   | Total jumps in a session                                 |
-| Session Jumps Per Minute  | float64   | Jumps per minute (jump intensity)                        |
-| Total IMA                 | float64   | Total number of movements (all intensities)              |
-| IMA/Min                   | float64   | Number of movements per minute                           |
-| Date                      | datetime  | Date the session took place                              |
-| Position                  | object    | Player's on-court role (Guard, Forward, Center)          |
-
-```
+| Variable Name             | Data Type | Description                                         |
+|---------------------------|-----------|-----------------------------------------------------|
+| Total Player Load         | float64   | Total physical effort during a session              |
+| Player Load Per Minute    | float64   | Effort per minute (intensity)                       |
+| Explosive Efforts         | int64     | Number of high-intensity movements                  |
+| Session Total Jump        | float64   | Total jumps in a session                            |
+| Session Jumps Per Minute  | float64   | Jumps per minute (jump intensity)                   |
+| Total IMA                 | float64   | Total number of movements (all intensities)         |
+| IMA/Min                   | float64   | Number of movements per minute                      |
+| Date                      | datetime  | Date the session took place                         |
+| Position                  | object    | Player's on-court role (Guard, Forward, Center)     |
