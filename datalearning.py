@@ -15,13 +15,13 @@ df = pd.concat([c1, c2], ignore_index=True)
 
 #check for duplicates
 duplicates = df.duplicated()
-print(f"Number of duplicates: {duplicates.sum()}")
+duplicates.sum()
 #drop duplicates
 df = df.drop_duplicates()
 #check for missing values
 missing_values = df.isnull().sum()
 #drop missing values
-df = df.dropna()
+#df = df.dropna()
 
 #keep only key features
 key_vars = [

@@ -112,11 +112,11 @@
   {
     "objectID": "datadictionary.html",
     "href": "datadictionary.html",
-    "title": "DS2023 Catapult Group 2 Final Project",
+    "title": "5  Data Dictionary",
     "section": "",
-    "text": "import pandas as pd\nfrom datalearning import df\n\n\ndescriptions = {\n    'column1': 'Description of column1',\n    'column2': 'Description of column2',\n    'column3': 'Description of column3',\n    'column4': 'Description of column4',\n    'column5': 'Description of column5',\n    'column6': 'Description of column6',\n    'column7': 'Description of column7',\n    'column8': 'Description of column8',\n\n}\n\ndata_dict = pd.DataFrame({\n    'Variable': df.columns,\n    'Description': [descriptions.get(col, '') for col in df.columns],\n    'Data Type': [df[col].dtype for col in df.columns]\n})\n\nfrom IPython.display import display, HTML\n\ndisplay(HTML(data_dict.to_html()))\n\nNumber of duplicates: 0\n\n\n\n\n\n\nVariable\nDescription\nData Type\n\n\n\n\n0\nTotal Player Load\n\nfloat64\n\n\n1\nPlayer Load Per Minute\n\nfloat64\n\n\n2\nExplosive Efforts\n\nint64\n\n\n3\nSession Total Jump\n\nfloat64\n\n\n4\nSession Jumps Per Minute\n\nfloat64\n\n\n5\nTotal IMA\n\nfloat64\n\n\n6\nIMA/Min\n\nfloat64\n\n\n7\nPosition\n\nobject",
+    "text": "import pandas as pd\nfrom datalearning import df\n\n\ndescriptions = {\n    'column1': 'Description of column1',\n    'column2': 'Description of column2',\n    'column3': 'Description of column3',\n    'column4': 'Description of column4',\n    'column5': 'Description of column5',\n    'column6': 'Description of column6',\n    'column7': 'Description of column7',\n    'column8': 'Description of column8',\n\n}\n\ndata_dict = pd.DataFrame({\n    'Variable': df.columns,\n    'Description': [descriptions.get(col, '') for col in df.columns],\n    'Data Type': [df[col].dtype for col in df.columns]\n})\n\nfrom IPython.display import display, HTML\n\ndisplay(HTML(data_dict.to_html()))\n\n\n\n\n\nVariable\nDescription\nData Type\n\n\n\n\n0\nTotal Player Load\n\nfloat64\n\n\n1\nPlayer Load Per Minute\n\nfloat64\n\n\n2\nExplosive Efforts\n\nint64\n\n\n3\nSession Total Jump\n\nfloat64\n\n\n4\nSession Jumps Per Minute\n\nfloat64\n\n\n5\nTotal IMA\n\nfloat64\n\n\n6\nIMA/Min\n\nfloat64\n\n\n7\nPosition\n\nobject",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>datadictionary.html</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionary</span>"
     ]
   },
   {
@@ -124,7 +124,7 @@
     "href": "index.html",
     "title": "DS2023 Catapult Group 2 Final Project",
     "section": "",
-    "text": "0.1 Title uhhh??\nThe Audience: It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nThe Problem Statement: Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
+    "text": "0.1 Report\nThe Audience: It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need.\nThe Problem Statement: Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Report</span>"
     ]

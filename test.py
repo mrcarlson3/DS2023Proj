@@ -33,30 +33,30 @@ uva['Date'] = pd.to_datetime(uva['Date'], errors='coerce')
 # Drop rows with missing critical data
 uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position'])
 
-# Create a 'Week' column (start of the week, e.g., Monday)
-uva['Week'] = uva['Date'].dt.to_period('W').apply(lambda r: r.start_time)
+# Create a 'Month' column
+uva['Month'] = uva['Date'].dt.to_period('M').dt.to_timestamp()
 
-# Group by Week and Position, and average key metrics
-weekly_avg = uva.groupby(['Week', 'Position'], as_index=False).agg({
+# Group by Month and Position, and average key metrics
+monthly_avg = uva.groupby(['Month', 'Position'], as_index=False).agg({
     'Player Load Per Minute': 'mean',
     'Explosive Efforts': 'mean'
 })
 
 fig_load = px.line(
-    weekly_avg,
-    x='Week',
+    monthly_avg,
+    x='Month',
     y='Player Load Per Minute',
     color='Position',
     markers=True,
-    title='Monthly Average: Total Player Load by Position'
+    title='Monthly Average: Player Load Per Minute by Position'
 )
 
 fig_load.update_layout(
     xaxis_title='Month',
-    yaxis_title='Avg Total Player Load',
+    yaxis_title='Avg Player Load Per Minute',
     hovermode='x unified',
      xaxis=dict(
-        range=['2023-10-01', '2024-03-30']  # Set desired zoom window
+        range=['2023-09-01', '2024-03-30']  # Set desired zoom window
     )
 )
 
@@ -65,8 +65,8 @@ fig_load.show()
 
 
 fig_effort = px.line(
-    weekly_avg,
-    x='Week',
+    monthly_avg,
+    x='Month',
     y='Explosive Efforts',
     color='Position',
     markers=True,
