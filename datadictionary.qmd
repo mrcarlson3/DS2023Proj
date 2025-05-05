@@ -8,5 +8,6 @@
 | Session Jumps Per Minute  | float64   | Jumps per minute (jump intensity)                   |
 | Total IMA                 | float64   | Total number of movements (all intensities)         |
 | IMA/Min                   | float64   | Number of movements per minute                      |
-| Date                      | datetime  | Date the session took place                         |
+| Date                      | datetime64  | Date the session took place                         |
+| Month                     | datetime64  | Month of combined session dates (1-12)              |
 | Position                  | object    | Player's on-court role (Guard, Forward, Center)     |

@@ -4,10 +4,9 @@ project:
 
 book:
   title: "DS2023 Catapult Group 2 Final Project"
-  subtitle: "Preventing Fatigue and Injury in Collegiate Basketball"
   author: "Alka Link, Grace Pitts, Kieran Perdue, Michael Carlson"
   favicon: logo.png
-  description: "Our report for the UVA Mens Basketball Team Catapult Data"
+  description: "Preventing Fatigue and Injury in Collegiate Basketball"
   keyword: data science, communicating, storytelling, data visualization, data design
   url: https://mrcarlson3.github.io/DS2023Proj/
   sidebar: 

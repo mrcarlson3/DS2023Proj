@@ -10,13 +10,13 @@ import numpy as np
 import scipy as sp
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio  
 from datalearning import df
 ```
 
 
-## Data Visualizations
+## Visuals
 
-### Line graphs
 ```{python}
 #line graph of player load per minute 
 monthly_avg = df.groupby(['Month', 'Position'], as_index=False).agg({ #This creates a new dataframe which groups data by month and position and takes the average of each
@@ -44,11 +44,14 @@ fig_load.update_layout(  #Adds labels and makes the graph interactive
 )
 
 fig_load.show() #Shows plot
+
+fig_load.write_image('player_load_per_minute.png') #Saves plot as PNG file
 ```
+
 The graph above illustrates how player load per minute has fluctuated throughout the past two seasons, emphasizing the importance of adjusting training and recovery plans throughout the year.
 
 ```{python}
-fig_effort = px.line( #Makes a line graph with 3 lines showing average Expolosive Efforts over time by Position
+fig_effort = px.line( #Makes a line graph with 3 lines showing average Explosive Efforts over time by Position
     monthly_avg, #Uses the new monthly_avg dataset
     x='Month',
     y='Explosive Efforts',
@@ -68,12 +71,14 @@ fig_effort.update_layout(  #Adds labels and makes the graph interactive
 
 fig_effort.show() #Displays plot
 
+fig_effort.write_image('effort.png') #Saves plot as PNG file
+
 ```
 
 The graph above illustrates how Explosive Efforts by position decreased initially, then increased significantly for each position for the majority of the rest of the season.
 ```{python}
 
-fig_effort = px.line( #Makes a line graph with 3 lines showing average Total IMA over time by Position
+fig_ima = px.line( #Makes a line graph with 3 lines showing average Total IMA over time by Position
     monthly_avg, #Uses the dataframe monthly_avg
     x='Month',
     y='Total IMA',
@@ -82,7 +87,7 @@ fig_effort = px.line( #Makes a line graph with 3 lines showing average Total IMA
     title='Monthly Average: Total IMA by Position' #Adds graph title
 )
 
-fig_effort.update_layout( #Adds labels and makes the graph interactive
+fig_ima.update_layout( #Adds labels and makes the graph interactive
     xaxis_title='Month',
     yaxis_title='Avg Total IMA',
     hovermode='x unified',
@@ -91,7 +96,9 @@ fig_effort.update_layout( #Adds labels and makes the graph interactive
     )
 )
 
-fig_effort.show() #Displays plot
+fig_ima.show() #Displays plot
+
+fig_ima.write_image('ima.png') #Saves plot as PNG file
 ```
 
 As seen in the graph above, Total IMA has decreased for the majority of the past two seasons, with little variability between positions. 

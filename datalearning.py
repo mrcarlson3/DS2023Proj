@@ -19,10 +19,8 @@ duplicates = df.duplicated()
 duplicates.sum()
 #drop duplicates
 df = df.drop_duplicates()
-#check for missing values
-missing_values = df.isnull().sum()
-#drop missing values
-#df = df.dropna()
+
+
 
 #keep only key features
 key_vars = [
@@ -30,10 +28,9 @@ key_vars = [
 ]
 df = df[key_vars]
 
-# Convert 'Date' to datetime
-#df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+# converting date feature to datetime format so it can be used as time
 df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%y', errors='coerce')
 
 
-# Create a 'Month' column
+# Creating a month column based on the date column
 df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()

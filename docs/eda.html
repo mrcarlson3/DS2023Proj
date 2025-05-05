@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Our report for the UVA Mens Basketball Team Catapult Data">
+<meta name="description" content="Preventing Fatigue and Injury in Collegiate Basketball">
 
-<title>3&nbsp; Exploratory Data Analysis (Group) – DS2023 Catapult Group 2 Final Project</title>
+<title>2&nbsp; Exploratory Data Analysis – DS2023 Catapult Group 2 Final Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./eda.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./eda.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,31 +151,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Report</span></span></a>
+ <span class="menu-text">Report</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datalearning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./eda.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dataviz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualizations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualizations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datadictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Dictionary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Dictionary</span></span></a>
   </div>
 </li>
     </ul>
@@ -188,11 +188,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#important-variables-within-this-dataset" id="toc-important-variables-within-this-dataset" class="nav-link active" data-scroll-target="#important-variables-within-this-dataset"><span class="header-section-number">3.1</span> Important Variables within this Dataset</a></li>
-  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data"><span class="header-section-number">3.2</span> Cleaning the data</a></li>
-  <li><a href="#descriptive-statistics-distributions" id="toc-descriptive-statistics-distributions" class="nav-link" data-scroll-target="#descriptive-statistics-distributions"><span class="header-section-number">3.3</span> Descriptive Statistics &amp; Distributions</a></li>
-  <li><a href="#examine-correlations" id="toc-examine-correlations" class="nav-link" data-scroll-target="#examine-correlations"><span class="header-section-number">3.4</span> Examine Correlations</a></li>
-  <li><a href="#explore-relationships" id="toc-explore-relationships" class="nav-link" data-scroll-target="#explore-relationships"><span class="header-section-number">3.5</span> Explore Relationships</a></li>
+  <li><a href="#important-variables-within-this-dataset" id="toc-important-variables-within-this-dataset" class="nav-link active" data-scroll-target="#important-variables-within-this-dataset"><span class="header-section-number">2.1</span> Important Variables within this Dataset</a></li>
+  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data"><span class="header-section-number">2.2</span> Cleaning the data</a></li>
+  <li><a href="#descriptive-statistics-distributions" id="toc-descriptive-statistics-distributions" class="nav-link" data-scroll-target="#descriptive-statistics-distributions"><span class="header-section-number">2.3</span> Descriptive Statistics &amp; Distributions</a></li>
+  <li><a href="#examine-correlations" id="toc-examine-correlations" class="nav-link" data-scroll-target="#examine-correlations"><span class="header-section-number">2.4</span> Examine Correlations</a></li>
+  <li><a href="#explore-relationships" id="toc-explore-relationships" class="nav-link" data-scroll-target="#explore-relationships"><span class="header-section-number">2.5</span> Explore Relationships</a></li>
   </ul>
 </nav>
     </div>
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (Group)</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis</span></h1>
 </div>
 
 
@@ -218,8 +218,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="important-variables-within-this-dataset" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="important-variables-within-this-dataset"><span class="header-section-number">3.1</span> Important Variables within this Dataset</h2>
+<section id="important-variables-within-this-dataset" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="important-variables-within-this-dataset"><span class="header-section-number">2.1</span> Important Variables within this Dataset</h2>
 <ul>
 <li><code>Total Player Load</code>: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall.</li>
 <li><code>Player Load Per Minute</code>: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.</li>
@@ -231,9 +231,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>Position</code>: This is important for our analysis to compare all of our variables against position.</li>
 </ul>
 </section>
-<section id="cleaning-the-data" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="cleaning-the-data"><span class="header-section-number">3.2</span> Cleaning the data</h2>
-<div id="8ee9a826" class="cell" data-execution_count="1">
+<section id="cleaning-the-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="cleaning-the-data"><span class="header-section-number">2.2</span> Cleaning the data</h2>
+<div id="b82b3896" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -243,9 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datalearning <span class="im">import</span> df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="descriptive-statistics-distributions" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="descriptive-statistics-distributions"><span class="header-section-number">3.3</span> Descriptive Statistics &amp; Distributions</h2>
-<div id="8d9d7a5b" class="cell" data-execution_count="2">
+<section id="descriptive-statistics-distributions" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="descriptive-statistics-distributions"><span class="header-section-number">2.3</span> Descriptive Statistics &amp; Distributions</h2>
+<div id="90bc4a27" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[np.number])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -270,18 +270,28 @@ min             0.000000                0.000000           0.000000
 75%           190.236500                6.800000          11.000000   
 max           534.156000               12.700000         103.000000   
 
-       Session Total Jump  Session Jumps Per Minute    Total IMA     IMA/Min  
-count          911.000000                911.000000   911.000000  911.000000  
-mean           114.470911                  1.386937   824.243688   47.205060  
-std             50.033823                  0.568696   317.066287   52.545666  
-min              0.000000                  0.000000     0.000000    0.000000  
-25%             79.500000                  0.970000   621.000000   21.085000  
-50%            108.000000                  1.320000   862.000000   31.370000  
-75%            141.500000                  1.750000  1034.500000   42.675000  
-max            329.000000                  4.750000  1857.000000  310.430000  </code></pre>
+       Session Total Jump  Session Jumps Per Minute    Total IMA     IMA/Min  \
+count          911.000000                911.000000   911.000000  911.000000   
+mean           114.470911                  1.386937   824.243688   47.205060   
+std             50.033823                  0.568696   317.066287   52.545666   
+min              0.000000                  0.000000     0.000000    0.000000   
+25%             79.500000                  0.970000   621.000000   21.085000   
+50%            108.000000                  1.320000   862.000000   31.370000   
+75%            141.500000                  1.750000  1034.500000   42.675000   
+max            329.000000                  4.750000  1857.000000  310.430000   
+
+       Period Number  
+count          911.0  
+mean             1.0  
+std              0.0  
+min              1.0  
+25%              1.0  
+50%              1.0  
+75%              1.0  
+max              1.0  </code></pre>
 </div>
 </div>
-<div id="8c785136" class="cell" data-execution_count="3">
+<div id="c14c0e88" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>numeric_df <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'number'</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -329,12 +339,12 @@ max            329.000000                  4.750000  1857.000000  310.430000  </
 <li>The histogram comparing Player Load per Minute for each position illustrates how forwards and guards have a significantly higher player load per minute than centers. This is important information we will use to solve our problem statement regarding different positions exerting different player loads. Using this knowledge, we may be able to adapt training and recovery plans so that it is unique to what each position needs.</li>
 </ul>
 </section>
-<section id="examine-correlations" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="examine-correlations"><span class="header-section-number">3.4</span> Examine Correlations</h2>
+<section id="examine-correlations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="examine-correlations"><span class="header-section-number">2.4</span> Examine Correlations</h2>
 <blockquote class="blockquote">
 <p>Interpret findings: what variables appear related?</p>
 </blockquote>
-<div id="bda05b86" class="cell" data-execution_count="4">
+<div id="1c5df5f4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create regression plots to visualize relationships between total player load and explosive efforts </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span><span class="st">'Total Player Load'</span>, y<span class="op">=</span><span class="st">'Explosive Efforts'</span>, data<span class="op">=</span>df, scatter_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'darkblue'</span>}, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'red'</span>})</span>
@@ -354,12 +364,12 @@ max            329.000000                  4.750000  1857.000000  310.430000  </
 <li>This plot proves what we saw in our correlation matrix, which is that Explosive Efforts and Total Player Load have a positive, strong linear correlation.</li>
 </ul>
 </section>
-<section id="explore-relationships" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="explore-relationships"><span class="header-section-number">3.5</span> Explore Relationships</h2>
+<section id="explore-relationships" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="explore-relationships"><span class="header-section-number">2.5</span> Explore Relationships</h2>
 <blockquote class="blockquote">
 <p>Dig into potential causal or descriptive relationships</p>
 </blockquote>
-<div id="f7fd5917" class="cell" data-execution_count="5">
+<div id="c4c3573e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create plots between positions and other key variables</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Boxplots</span></span>
@@ -840,12 +850,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./datalearning.html" class="pagination-link" aria-label="Data Cleaning">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./dataviz.html" class="pagination-link" aria-label="Data Visualizations">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualizations</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualizations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
