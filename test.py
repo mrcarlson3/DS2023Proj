@@ -33,18 +33,18 @@ uva['Date'] = pd.to_datetime(uva['Date'], errors='coerce')
 # Drop rows with missing critical data
 uva = uva.dropna(subset=['Date', 'Total Player Load', 'Explosive Efforts', 'Position'])
 
-# Create a 'Month' column
-uva['Month'] = uva['Date'].dt.to_period('M').dt.to_timestamp()
+# Create a 'Week' column (start of the week, e.g., Monday)
+uva['Week'] = uva['Date'].dt.to_period('W').apply(lambda r: r.start_time)
 
-# Group by Month and Position, and average key metrics
-monthly_avg = uva.groupby(['Month', 'Position'], as_index=False).agg({
+# Group by Week and Position, and average key metrics
+weekly_avg = uva.groupby(['Week', 'Position'], as_index=False).agg({
     'Player Load Per Minute': 'mean',
     'Explosive Efforts': 'mean'
 })
 
 fig_load = px.line(
-    monthly_avg,
-    x='Month',
+    weekly_avg,
+    x='Week',
     y='Player Load Per Minute',
     color='Position',
     markers=True,
@@ -65,8 +65,8 @@ fig_load.show()
 
 
 fig_effort = px.line(
-    monthly_avg,
-    x='Month',
+    weekly_avg,
+    x='Week',
     y='Explosive Efforts',
     color='Position',
     markers=True,

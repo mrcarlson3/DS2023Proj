@@ -29,7 +29,7 @@ book:
 format:
   html:
     theme:
-      light: superhero
+      light: united
     code-fold: false
     backgroundcolor: '#FFFFFF'
 
