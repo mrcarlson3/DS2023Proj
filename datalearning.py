@@ -37,9 +37,3 @@ df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%y', errors='coerce')
 
 # Create a 'Month' column
 df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()
-
-
-game_periods = ['3. Period 1', '4. Period 2']
-
-# Create 'Session Type' column
-df['Session Type'] = np.where(df['Period Number'].isin(game_periods), 'Game', 'Practice')
