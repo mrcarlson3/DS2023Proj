@@ -31,7 +31,9 @@ key_vars = [
 df = df[key_vars]
 
 # Convert 'Date' to datetime
-df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+#df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%y', errors='coerce')
+
 
 # Create a 'Month' column
 df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()

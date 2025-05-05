@@ -1,4 +1,4 @@
-## Exploratory Data Analysis (Group) 
+## Exploratory Data Analysis 
 
 ## Important Variables within this Dataset
 * ``Total Player Load``: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. 

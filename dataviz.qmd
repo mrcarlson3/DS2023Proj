@@ -1,4 +1,4 @@
-# Initial Graphs (Group) 
+# Data Visualizations
 
 * Importing libraries
 ```{python}
