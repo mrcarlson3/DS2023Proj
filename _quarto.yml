@@ -13,9 +13,9 @@ book:
   sidebar: 
     logo: logo.png
     search: true
-    repo-url: https://github.com/mrcarlson3/DS2023Proj
-    repo-branch: main
-    image: logo.png
+  repo-url: https://github.com/mrcarlson3/DS2023Proj
+  repo-branch: main
+  image: logo.png
 
   chapters:
     - index.qmd
