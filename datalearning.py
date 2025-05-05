@@ -26,7 +26,7 @@ missing_values = df.isnull().sum()
 
 #keep only key features
 key_vars = [
-    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date'
+    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date', 'Period Number'
 ]
 df = df[key_vars]
 
@@ -37,3 +37,9 @@ df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%y', errors='coerce')
 
 # Create a 'Month' column
 df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()
+
+
+game_periods = ['3. Period 1', '4. Period 2']
+
+# Create 'Session Type' column
+df['Session Type'] = np.where(df['Period Number'].isin(game_periods), 'Game', 'Practice')
