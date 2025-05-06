@@ -5,8 +5,11 @@
 **The Audience:** The strength and conditioning staff of the UVA Mens Basketball Team.
 
 ## Problem Statement
+**Background:** In collegiate basketball, a grueling season of practices and games takes a toll on players' bodies. As the season reaches playoffs, players are expected to perform at their peak, but these demands are a catalyst for injury and exhaustion. These injuries and lack of proper recovery can lead to poor individual performance and ultimately impact the team's success. For teams, to progress in the posteason and make it through March Madness, it is crucial to ensure that there are optimal training and recovery plans in place for each stage of the season.
 
-Player efforts and demands on their bodies change as the season progresses. To ensure availability in postseason play, how can we look to optimize training and recovery to best prepare players for end of season critical moments?
+**Significance:** Postseason and NCAA tournament play is the most important time for collegiate teams. Results impact recruiting, funding, and overall success of the program. On the individual level, players are able to showcase their skills and abilities on the largest collegiate stage. This calls for a need to ensure that teams can perform at their best at the end of the season.
+
+**Problem Statement:** Player efforts and demands on their bodies change as the season progresses. To ensure availability in postseason play, how can we look to optimize training and recovery to best prepare players for postseason critical moments?
 
 ## Analysis
 
