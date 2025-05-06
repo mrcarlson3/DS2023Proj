@@ -1,6 +1,28 @@
-## Report
+# Report {.unnumbered}
 
-**The Audience:** It is important for strength and conditioning coaches to understand what kind of training and recovery plans their athletes need. 
+## Prepared for {.unnumbered}
 
+**The Audience:** The strength and conditioning staff of the UVA Mens Basketball Team.
 
-**The Problem Statement:** Each position exerts different levels of player loads within practices and games, how do we ensure that each position is getting their optimal training and recovery in order to perform best in games and prevent injury?
+## Problem Statement
+
+Player efforts and demands on their bodies change as the season progresses. To ensure availability in postseason play, how can we look to optimize training and recovery to best prepare players for end of season critical moments?
+
+## Analysis
+
+Catapult tracking data from practices and games reveals an important, actionable trend when analyzed across the course of the season. Presumably in an effort to limit player fatigue, player load per minute steadily declines over time, indicating practices decrease in intensity as the season progresses. However, despite this decrease in intensity, we observed a clear rise in explosive efforts toward the end of the season.
+
+![Player Load per Minute](player_load_per_minute.png)
+
+To determine whether this trend was isolated to specific types of players, we stratified the data by position group. Despite finding differences in volume of explosive efforts, we found the same trend for all three position groups;. explosive efforts increased late in the season even as total load decreased. This indicates a broader shift in the physical demands placed on players as games grow more competitive and winning becomes increasingly important.
+
+![effort](effort.png)
+
+This is a surprising contrast because the correlation between explosive efforts and player load per minute is strongly positive. This contrast gives insight into a potentially impactful in season training change.  Players' rates of explosive effort increase with rising in-game stakes, but overall have lower per minute exertion because of lower-intensity practice as the season progresses. While load management remains undoubtedly crucial for maintaining high player performance at the end of the season, this unique situation raises the question of whether these season long trends put players’ bodies in situations they are not accustomed to, and therefore not optimized for. Exposing players to more simulated environments like this late season reality could help physically prepare them for the demands of the postseason.
+
+![IMA](ima.png)
+
+## Conclusion
+
+To address this, we recommend in-season (and/or preseason which we have no data for) training that emphasizes explosive capacity without increasing intensity by load per minute. Obviously, this is counterintuitive as more explosive efforts inherently will lead to a higher load per minute, but maximizing explosive efforts under some load per minute threshold could provide a beneficial form of specialized training that prepares players for end of season needs.  Short, targeted sessions focused on speed, power, and agility can maintain explosiveness while keeping overall physical stress low. 
+Something that may require further digging is for how long and when to implement these training sessions. Presumably, it would have to be stretches of at least several days at a time to best replicate the idea of build-up. They could be potentially effective for the college basketball season in December when the game schedule is sparse so a more built out training plan is possible. Regardless of exact implementation, training that best simulates the specific requirements that arise when stakes are the highest could provide beneficial results for teams looking for postseason success.

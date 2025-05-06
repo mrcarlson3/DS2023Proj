@@ -1,0 +1,188 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Exploratory Data Analysis \n",
+        "\n",
+        "## Important Variables within this Dataset\n",
+        "* ``Total Player Load``: Total physical effort during a session. This is important for our analysis to see how much work the athlete is doing overall. \n",
+        "* ``Player Load Per Minute``: Effort per minute (intensity). This is important for our analysis to see the intensity/effort players are putting in. Higher pl per minute means they are most likely sprinting/exerting lots of energy which may take longer recovery.\n",
+        "* ``Explosive Efforts``: Number of high-intensity movements. This is important because high intensity movements can cause strain on muscles leading to potential injuries.\n",
+        "* ``Session Total Jump``: Total jumps in a session. This is important because positions that jump a lot may need more recovery due to the strain this puts on tendons. Especially since jumps are very frequent in basketball.\n",
+        "* ``Session Jumps Per Minute``: Jumps per minute (jump intensity). This can identify positions that may be at risk for knee injury if they have a very high rate of jumps per minutes.\n",
+        "* ``Total IMA``: Total number of movements (all intensities). This is important to analyze all movement and not just high intensity movement.\n",
+        "* ``IMA/Min``: Number of movements per minute. This is important to track endurance by position.\n",
+        "* ``Position``: This is important for our analysis to compare all of our variables against position. \n",
+        "\n",
+        "## Cleaning the data"
+      ],
+      "id": "55a837d3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# import libraries\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import numpy as np\n",
+        "import scipy as sp\n",
+        "from datalearning import df "
+      ],
+      "id": "48d81ac0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Descriptive Statistics & Distributions\n"
+      ],
+      "id": "7acfa165"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#Generate summary statistics (mean, median, standard deviation, min/max, quartiles) for numerical variables\n",
+        "numeric = df.select_dtypes(include=[np.number])\n",
+        "\n",
+        "numeric = numeric.dropna()  # Drop any rows with missing values\n",
+        "\n",
+        "# Create a new dataframe to store summary statistics\n",
+        "summary = pd.DataFrame()\n",
+        "# Calculate summary statistics for each numeric column and add to the dataframe\n",
+        "for each in numeric.columns:\n",
+        "    stats = numeric[each].describe()\n",
+        "    summary[each] = stats\n",
+        "\n",
+        "print(summary)"
+      ],
+      "id": "81899294",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#Create visualizations such as histograms, boxplots, or density plots to explore the distribution of key numerical variables.\n",
+        "numeric_df = df.select_dtypes(include=['number'])\n",
+        "\n",
+        "# Create correlation matrix\n",
+        "plt.figure(figsize=(12, 8))\n",
+        "corr = numeric_df.corr()\n",
+        "sns.heatmap(corr, cmap='coolwarm', annot=False, linewidths=0.5)\n",
+        "plt.title('Correlation Matrix')\n",
+        "plt.show()\n",
+        "\n",
+        "plt.figure(figsize=(10, 6))\n",
+        "#Plotting distribution of Player Load Per Minute\n",
+        "sns.histplot(df['Player Load Per Minute'], bins=30, kde=True)\n",
+        "plt.title('Distribution of Player Load Per Minute')\n",
+        "plt.show()\n",
+        "plt.figure(figsize=(10, 6))\n",
+        "\n",
+        "# correlation with player load and position\n",
+        "sns.histplot(df, x=\"Player Load Per Minute\", hue=\"Position\", element=\"step\", common_norm=False)\n",
+        "plt.show()"
+      ],
+      "id": "9f08f721",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* The correlation matrix shows that Explosive Efforts have a high correlation with Total Player Load, and Total IMA is highly correlated with Session Total Jumps. Knowing which variables have the highest correlation is important for our analysis so we can focus on those relationships and see what we can discover. \n",
+        "* The histogram comparing Player Load per Minute for each position illustrates how forwards and guards have a significantly higher player load per minute than centers. This is important information we will use to solve our problem statement regarding different positions exerting different player loads. Using this knowledge, we may be able to adapt training and recovery plans so that it is unique to what each position needs.\n",
+        "\n",
+        "## Examine Correlations \n",
+        "> Interpret findings: what variables appear related?"
+      ],
+      "id": "0cbe9837"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#Create regression plots to visualize relationships between total player load and explosive efforts \n",
+        "plt.figure(figsize=(10, 6))\n",
+        "sns.regplot(x='Total Player Load', y='Explosive Efforts', data=df, scatter_kws={'color': 'darkblue'}, line_kws={'color': 'red'})\n",
+        "plt.title('Total Player Load vs. Explosive Efforts')"
+      ],
+      "id": "d2863f66",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* This plot proves what we saw in our correlation matrix, which is that Explosive Efforts and Total Player Load have a positive, strong linear correlation. \n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Explore Relationships\n",
+        ">Dig into potential causal or descriptive relationships "
+      ],
+      "id": "e328b2fe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#Create plots between positions and other key variables\n",
+        "\n",
+        "#Boxplots\n",
+        "plt.figure(figsize=(8,6))\n",
+        "sns.boxplot(x=\"Position\", y=\"Total Player Load\", data=df)\n",
+        "plt.title(\"Player Loads by Position\")\n",
+        "plt.show()\n",
+        "\n",
+        "plt.figure(figsize=(8,6))\n",
+        "sns.boxplot(x=\"Position\", y=\"Explosive Efforts\", data=df)\n",
+        "plt.title(\"Explosive Efforts by Position\")\n",
+        "plt.show()\n",
+        "\n",
+        "#Histograms\n",
+        "plot = sns.FacetGrid(df, col=\"Position\", col_wrap=3, sharex=True, sharey=True)\n",
+        "plot.map(plt.hist, \"Total Player Load\", bins=30, color=\"lightblue\", edgecolor=\"black\")\n",
+        "plot.fig.suptitle(\"Histogram of Total Player Load by Position\", y=1.02)\n",
+        "plt.show()\n",
+        "\n",
+        "plot = sns.FacetGrid(df, col=\"Position\", col_wrap=3, sharex=True, sharey=True)\n",
+        "plot.map(plt.hist, \"Player Load Per Minute\", bins=30, color=\"lightblue\", edgecolor=\"black\")\n",
+        "plot.fig.suptitle(\"Histogram of Player Load per Minute by Position\", y=1.02)\n",
+        "plt.show()"
+      ],
+      "id": "bd0f1518",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* By comparing different variables by position, it is clear that there are some differences in their levels of Explosive Efforts and Total Player Loads, although those variables don’t seem to have too drastic of a difference. The largest difference by position is Player Load per Minute. As seen in the side-by-side histograms, centers have significantly lower player load per minute than forwards and guards. This is crucial information we will utilize to illustrate to strength and conditioning coaches that there may be more productive ways to train and recover depending on the position. "
+      ],
+      "id": "69c2a33d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/opt/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

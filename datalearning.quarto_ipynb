@@ -1,0 +1,119 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Data Cleaning"
+      ],
+      "id": "702d7288"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# import libraries\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import numpy as np\n",
+        "import scipy as sp"
+      ],
+      "id": "2ae423e8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We began by loading in the catapult data from both seasons and merging the two so that we can analyze trends and patterns across both seasons together, rather than analyzing them separate. It is important to note that this is simulated data, due to privacy reasons preventing us from using players actual data. The simulated data is still highly useful and allows us to draw meaningful conclusions."
+      ],
+      "id": "56f231c2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# load data\n",
+        "c1 = pd.read_csv('catapult season 1.csv')\n",
+        "c2 = pd.read_csv('catapult season 2.csv')\n",
+        "# merge the two seasons using concat ignoring their individual indexes\n",
+        "df = pd.concat([c1, c2], ignore_index=True)"
+      ],
+      "id": "750f4288",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We dropped duplicates to remove any repeated entries which may skew the analysis. Duplicate rows sometimes occur due to data entry errors, or merging issues, which may occur in our dataset since we merged the two. By dropping duplicates, we know that each data entry is unique."
+      ],
+      "id": "72471a2f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#check for duplicates\n",
+        "duplicates = df.duplicated()\n",
+        "print(f\"Number of duplicates: {duplicates.sum()}\")\n",
+        "#drop duplicates\n",
+        "df = df.drop_duplicates()"
+      ],
+      "id": "657933f2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We decided to only keep these key features because they represent the metrics we believed would be most relevant to our analysis and produce the most interesting findings. These variables provide meaningful insights into player workload, intensity, and performance. We believe that focusing on these metrics will help us tell the most accurate and compelling story about athlete training and recovery and allow us to draw clearer conclusions.\n",
+        "#keep only key features"
+      ],
+      "id": "c4d51d6d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#list of key variables that will be used\n",
+        "key_vars = [\n",
+        "    'Total Player Load', 'Player Load Per Minute', 'Explosive Efforts', 'Session Total Jump', 'Session Jumps Per Minute', 'Total IMA', 'IMA/Min', 'Position', 'Date'\n",
+        "]\n",
+        "#setting dataframe to only include key variables\n",
+        "df = df[key_vars]\n",
+        "\n",
+        "# converting date feature to datetime format so it can be used as time\n",
+        "df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%y', errors='coerce')\n",
+        "# Creating a month column based on the date column\n",
+        "df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()\n",
+        "df.info()"
+      ],
+      "id": "c8db8d5f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We created a new column for months to allow us to analyze trends over time without having to get overwhelming amounts of data by day."
+      ],
+      "id": "4986cd37"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/opt/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
