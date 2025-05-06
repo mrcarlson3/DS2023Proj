@@ -3,10 +3,11 @@ project:
   output-dir: docs
 
 book:
-  title: "DS2023 Catapult Group 2 Final Project"
+  title: "UVA Men's Basketball: Performance & Availability Insights"
+  subtitle: "DS2023 Catapult Group 2 Final Project"
   author: "Alka Link, Grace Pitts, Kieran Perdue, Michael Carlson"
   favicon: logo.png
-  description: "Preventing Fatigue and Injury in Collegiate Basketball"
+  description: "Investigation on Preventing Fatigue and Injury in Collegiate Basketball"
   keyword: data science, communicating, storytelling, data visualization, data design
   url: https://mrcarlson3.github.io/DS2023Proj/
   sidebar: 

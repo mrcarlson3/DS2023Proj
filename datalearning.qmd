@@ -9,6 +9,7 @@ import scipy as sp
 ```
 
 We began by loading in the catapult data from both seasons and merging the two so that we can analyze trends and patterns across both seasons together, rather than analyzing them separate. It is important to note that this is simulated data, due to privacy reasons preventing us from using players actual data. The simulated data is still highly useful and allows us to draw meaningful conclusions.
+
 ```{python}
 # load data
 c1 = pd.read_csv('catapult season 1.csv')
@@ -18,6 +19,7 @@ df = pd.concat([c1, c2], ignore_index=True)
 ```
 
 We dropped duplicates to remove any repeated entries which may skew the analysis. Duplicate rows sometimes occur due to data entry errors, or merging issues, which may occur in our dataset since we merged the two. By dropping duplicates, we know that each data entry is unique.
+
 ```{python}
 #check for duplicates
 duplicates = df.duplicated()
@@ -28,7 +30,7 @@ df = df.drop_duplicates()
 ```
 
 We decided to only keep these key features because they represent the metrics we believed would be most relevant to our analysis and produce the most interesting findings. These variables provide meaningful insights into player workload, intensity, and performance. We believe that focusing on these metrics will help us tell the most accurate and compelling story about athlete training and recovery and allow us to draw clearer conclusions.
-#keep only key features
+
 ```{python}
 #list of key variables that will be used
 key_vars = [
