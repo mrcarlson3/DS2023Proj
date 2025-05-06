@@ -2,7 +2,7 @@
 
 ## Prepared for {.unnumbered}
 
-**The Audience:** The strength and conditioning staff of the UVA Mens Basketball Team.
+**The Audience:** The strength and conditioning staff of the UVA Men's Basketball Team.
 
 ## Problem Statement
 **Background:** In collegiate basketball, a grueling season of practices and games takes a toll on players' bodies. As the season reaches playoffs, players are expected to perform at their peak, but these demands are a catalyst for injury and exhaustion. These injuries and lack of proper recovery can lead to poor individual performance and ultimately impact the team's success. For teams, to progress in the posteason and make it through March Madness, it is crucial to ensure that there are optimal training and recovery plans in place for each stage of the season.
@@ -24,6 +24,8 @@ To determine whether this trend was isolated to specific types of players, we st
 This is a surprising contrast because the correlation between explosive efforts and player load per minute is strongly positive. This contrast gives insight into a potentially impactful in season training change.  Players' rates of explosive effort increase with rising in-game stakes, but overall have lower per minute exertion because of lower-intensity practice as the season progresses. While load management remains undoubtedly crucial for maintaining high player performance at the end of the season, this unique situation raises the question of whether these season long trends put players’ bodies in situations they are not accustomed to, and therefore not optimized for. Exposing players to more simulated environments, like this late season reality, could help physically prepare them for the demands of the postseason.
 
 ![Total IMA](ima.png)
+
+As a reference beyond Player Load, we looked at the total IMA, measuring the total amount of movement in a session. From the visuals we see that like Player Load, total IMA also decreases until playoffs. This indicates that overall movement decreases, and therefore practice plans should be evaluated to better reflect these changes in player load, IMA, and explosive efforts.
 
 ## Conclusion
 
