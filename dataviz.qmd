@@ -31,17 +31,55 @@ fig_load = px.line( #Makes a line graph with 3 lines showing average Player Load
     y='Player Load Per Minute', 
     color='Position', #Colors each line by position
     markers=True, #Adds a marker at each data point
-    title='Monthly Average: Player Load Per Minute by Position' #Adds title
+    title='Trends over time: Player Load Per Minute by Position' #Adds title
 )
 
 fig_load.update_layout(  #Adds labels and makes the graph interactive
     xaxis_title='Month', 
     yaxis_title='Avg Player Load Per Minute',
+    showlegend=False, #Removes legend
     hovermode='x unified',
      xaxis=dict(
         range=['2023-09-01', '2024-03-30']  # Set desired zoom window
-    )
+    ),
+    plot_bgcolor='white', #Sets background color to white
+    paper_bgcolor='white', #Sets background of figure to white
+    yaxis=dict(showgrid=True, gridcolor='lightgray', dtick=0.5) #y axis gridlines and y tick interval
 )
+
+#this adds annotations of the position at the end of each line
+fig_load.update_layout(
+    annotations=[
+        dict(
+            x='2024-03-05',
+            y=5.66,
+            text='Center',
+            showarrow=False,
+            font=dict(size=14, color='blue'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=5.8,
+            text='Forward',
+            showarrow=False,
+            font=dict(size=14, color='red'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=5.71,  # Updated y value for Guard
+            text='Guard',
+            showarrow=False,
+            font=dict(size=14, color='green'),
+            xanchor='left',
+            xshift=5
+        )
+    ]
+)
+
 
 fig_load.show() #Shows plot
 
@@ -57,17 +95,61 @@ fig_effort = px.line( #Makes a line graph with 3 lines showing average Explosive
     y='Explosive Efforts',
     color='Position', #Each line is a different color which correlates with position
     markers=True, #Adds markers at each data point
-    title='Monthly Average: Explosive Efforts by Position' #Adds title
+    title='Trends over time: Explosive Efforts by Position' #Adds title
 )
 
-fig_effort.update_layout(  #Adds labels and makes the graph interactive
+fig_effort.update_layout(  # Adds labels, makes the graph interactive, and sets background to white
     xaxis_title='Month', 
     yaxis_title='Avg Explosive Efforts',
     hovermode='x unified',
-     xaxis=dict(
+    showlegend=False, #Removes legend
+    xaxis=dict(
         range=['2023-10-01', '2024-03-30']  # Set desired zoom window
+    ),
+    plot_bgcolor='white', #Sets background color to white
+    paper_bgcolor='white', #sets background of figure to white
+    yaxis=dict(
+        showgrid=True, 
+        gridcolor='lightgray',
+        tickmode='linear',
+        dtick=1,  # Set y-axis ticks at intervals of 1
+        range=[5, 8.5]  # Set y-axis range 
     )
 )
+
+#this adds annotations of the position at the end of each line
+fig_effort.update_layout(
+    annotations=[
+        dict(
+            x='2024-03-05',
+            y=7.05,
+            text='Center',
+            showarrow=False,
+            font=dict(size=14, color='blue'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=6.65,
+            text='Forward',
+            showarrow=False,
+            font=dict(size=14, color='red'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=8.3,
+            text='Guard',
+            showarrow=False,
+            font=dict(size=14, color='green'),
+            xanchor='left',
+            xshift=5
+        )
+    ]
+)
+
 
 fig_effort.show() #Displays plot
 
@@ -84,17 +166,56 @@ fig_ima = px.line( #Makes a line graph with 3 lines showing average Total IMA ov
     y='Total IMA',
     color='Position', #Colors each line by position
     markers=True, #Adds markers to each data point
-    title='Monthly Average: Total IMA by Position' #Adds graph title
+    title='Trends over time: Total IMA by Position' #Adds graph title
 )
 
 fig_ima.update_layout( #Adds labels and makes the graph interactive
     xaxis_title='Month',
     yaxis_title='Avg Total IMA',
+    showlegend=False, #Removes legend
     hovermode='x unified',
      xaxis=dict(
         range=['2023-10-01', '2024-03-30']  # Set desired zoom window
-    )
+    ),
+    plot_bgcolor='white', #Sets background color to white
+    paper_bgcolor='white', #Sets background of figure to white
+    yaxis=dict(showgrid=True, gridcolor='lightgray',  dtick=200) #y axis gridlines, and sets tick interval
 )
+
+#this adds annotations of the position at the end of each line
+fig_ima.update_layout(
+    annotations=[
+        dict(
+            x='2024-03-05',
+            y=840,
+            text='Center',
+            showarrow=False,
+            font=dict(size=14, color='blue'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=880,
+            text='Forward',
+            showarrow=False,
+            font=dict(size=14, color='red'),
+            xanchor='left',
+            xshift=5
+        ),
+        dict(
+            x='2024-03-05',
+            y=790,  # Updated y value for Guard
+            text='Guard',
+            showarrow=False,
+            font=dict(size=14, color='green'),
+            xanchor='left',
+            xshift=5
+        )
+    ]
+)
+
+
 
 fig_ima.show() #Displays plot
 

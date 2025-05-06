@@ -6,7 +6,7 @@
       "source": [
         "# Data Cleaning"
       ],
-      "id": "5c72f090"
+      "id": "702d7288"
     },
     {
       "cell_type": "code",
@@ -19,7 +19,7 @@
         "import numpy as np\n",
         "import scipy as sp"
       ],
-      "id": "6c1048f9",
+      "id": "2ae423e8",
       "execution_count": null,
       "outputs": []
     },
@@ -29,7 +29,7 @@
       "source": [
         "We began by loading in the catapult data from both seasons and merging the two so that we can analyze trends and patterns across both seasons together, rather than analyzing them separate. It is important to note that this is simulated data, due to privacy reasons preventing us from using players actual data. The simulated data is still highly useful and allows us to draw meaningful conclusions."
       ],
-      "id": "8bf71d0f"
+      "id": "56f231c2"
     },
     {
       "cell_type": "code",
@@ -41,7 +41,7 @@
         "# merge the two seasons using concat ignoring their individual indexes\n",
         "df = pd.concat([c1, c2], ignore_index=True)"
       ],
-      "id": "3a064fc6",
+      "id": "750f4288",
       "execution_count": null,
       "outputs": []
     },
@@ -51,7 +51,7 @@
       "source": [
         "We dropped duplicates to remove any repeated entries which may skew the analysis. Duplicate rows sometimes occur due to data entry errors, or merging issues, which may occur in our dataset since we merged the two. By dropping duplicates, we know that each data entry is unique."
       ],
-      "id": "a3dd5572"
+      "id": "72471a2f"
     },
     {
       "cell_type": "code",
@@ -63,7 +63,7 @@
         "#drop duplicates\n",
         "df = df.drop_duplicates()"
       ],
-      "id": "356866a4",
+      "id": "657933f2",
       "execution_count": null,
       "outputs": []
     },
@@ -74,7 +74,7 @@
         "We decided to only keep these key features because they represent the metrics we believed would be most relevant to our analysis and produce the most interesting findings. These variables provide meaningful insights into player workload, intensity, and performance. We believe that focusing on these metrics will help us tell the most accurate and compelling story about athlete training and recovery and allow us to draw clearer conclusions.\n",
         "#keep only key features"
       ],
-      "id": "5630b2ee"
+      "id": "c4d51d6d"
     },
     {
       "cell_type": "code",
@@ -93,7 +93,7 @@
         "df['Month'] = df['Date'].dt.to_period('M').dt.to_timestamp()\n",
         "df.info()"
       ],
-      "id": "5dec2b36",
+      "id": "c8db8d5f",
       "execution_count": null,
       "outputs": []
     },
@@ -103,7 +103,7 @@
       "source": [
         "We created a new column for months to allow us to analyze trends over time without having to get overwhelming amounts of data by day."
       ],
-      "id": "152a94e5"
+      "id": "4986cd37"
     }
   ],
   "metadata": {
