@@ -112,11 +112,11 @@
   {
     "objectID": "datadictionary.html",
     "href": "datadictionary.html",
-    "title": "5  Data Dictionary",
+    "title": "4  Data Dictionary",
     "section": "",
     "text": "Variable Name\nData Type\nDescription\n\n\n\n\nTotal Player Load\nfloat64\nTotal physical effort during a session\n\n\nPlayer Load Per Minute\nfloat64\nEffort per minute (intensity)\n\n\nExplosive Efforts\nint64\nNumber of high-intensity movements\n\n\nSession Total Jump\nfloat64\nTotal jumps in a session\n\n\nSession Jumps Per Minute\nfloat64\nJumps per minute (jump intensity)\n\n\nTotal IMA\nfloat64\nTotal number of movements (all intensities)\n\n\nIMA/Min\nfloat64\nNumber of movements per minute\n\n\nDate\ndatetime64\nDate the session took place\n\n\nMonth\ndatetime64\nMonth of combined session dates (1-12)\n\n\nPosition\nobject\nPlayer’s on-court role (Guard, Forward, Center)",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Dictionary</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Dictionary</span>"
     ]
   },
   {
