@@ -157,7 +157,7 @@ fig_effort.write_image('effort.png') #Saves plot as PNG file
 
 ```
 
-The graph above illustrates how Explosive Efforts by position decreased initially, then increased significantly for each position for the majority of the rest of the season.
+The graph above illustrates how Explosive Efforts by position decreased initially, then increased significantly for each position for the majority of the season.
 ```{python}
 
 fig_ima = px.line( #Makes a line graph with 3 lines showing average Total IMA over time by Position
