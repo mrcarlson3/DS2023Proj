@@ -206,34 +206,34 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="problem-statement" class="level2">
 <h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
-<p><strong>Background:</strong> In collegiate basketball, a grueling season of practices and games takes a toll on players’ bodies. As the season reaches playoffs, players are expected to perform at their peak, but these demands are a catalyst for injury and exhaustion. These injuries and lack of proper recovery can lead to poor individual performance and ultimately impact the team’s success. For teams, to progress in the posteason and make it through March Madness, it is crucial to ensure that there are optimal training and recovery plans in place for each stage of the season.</p>
+<p><strong>Background:</strong> In collegiate basketball, a grueling season of practices and games takes a toll on players’ bodies. As the season reaches playoffs, players are expected to perform at their peak, but these demands are a catalyst for injury and exhaustion. These injuries and lack of proper recovery can lead to poor individual performance and ultimately impact the team’s success. For teams, to progress in the postseason and make it through March Madness, it is crucial to ensure that there are optimal training and recovery plans in place for each stage of the season.</p>
 <p><strong>Significance:</strong> Postseason and NCAA tournament play is the most important time for collegiate teams. Results impact recruiting, funding, and overall success of the program. On the individual level, players are able to showcase their skills and abilities on the largest collegiate stage. This calls for a need to ensure that teams can perform at their best at the end of the season.</p>
 <p><strong>Problem Statement:</strong> Player efforts and demands on their bodies change as the season progresses. To ensure availability in postseason play, how can we look to optimize training and recovery to best prepare players for postseason critical moments?</p>
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>Catapult tracking data from practices and games reveals an important, actionable trend when analyzed across the course of the season. Presumably in an effort to limit player fatigue, player load per minute steadily declines over time, indicating practices decrease in intensity as the season progresses. However, despite this decrease in intensity, we observed a clear rise in explosive efforts toward the end of the season.</p>
+<p>Catapult tracking data from practices and games reveals an important, actionable trend when analyzed across the course of the season. Presumably in an effort to limit player fatigue, <code>player load per minute</code> steadily declines over time, indicating practices decrease in intensity as the season progresses. However, despite this decrease in intensity, we observed a clear rise in explosive efforts toward the end of the season.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="player_load_per_minute.png" class="img-fluid figure-img"></p>
 <figcaption>Player Load per Minute</figcaption>
 </figure>
 </div>
-<p>To determine whether this trend was isolated to specific types of players, we stratified the data by position group. Despite finding differences in volume of explosive efforts, we found the same trend for all three position groups; explosive efforts increased late in the season even as total load decreased. This indicates a broader shift in the physical demands placed on players as games grow more competitive and winning becomes increasingly important.</p>
+<p>To determine whether this trend was isolated to specific types of players, we stratified the data by position group. Despite finding differences in volume of <code>explosive efforts</code>, we found the same trend for all three position groups; <code>explosive efforts</code> increased late in the season even as total load decreased. This indicates a broader shift in the physical demands placed on players as games grow more competitive and winning becomes increasingly important.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="effort.png" class="img-fluid figure-img"></p>
 <figcaption>Explosive Effort</figcaption>
 </figure>
 </div>
-<p>This is a surprising contrast because the correlation between explosive efforts and player load per minute is strongly positive. This contrast gives insight into a potentially impactful in season training change. Players’ rates of explosive effort increase with rising in-game stakes, but overall have lower per minute exertion because of lower-intensity practice as the season progresses. While load management remains undoubtedly crucial for maintaining high player performance at the end of the season, this unique situation raises the question of whether these season long trends put players’ bodies in situations they are not accustomed to, and therefore not optimized for. Exposing players to more simulated environments, like this late season reality, could help physically prepare them for the demands of the postseason.</p>
+<p>This is a surprising contrast because the correlation between <code>explosive efforts</code> and <code>player load per minute</code> is strongly positive. This contrast gives insight into a potentially impactful in season training change. Players’ rates of <code>explosive effort</code> increase with rising in-game stakes, but overall have lower per minute exertion because of lower-intensity practice as the season progresses. While load management remains undoubtedly crucial for maintaining high player performance at the end of the season, this unique situation raises the question of whether these season long trends put players’ bodies in situations they are not accustomed to, and therefore not optimized for. Exposing players to more simulated environments, like this late season reality, could help physically prepare them for the demands of the postseason.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ima.png" class="img-fluid figure-img"></p>
 <figcaption>Total IMA</figcaption>
 </figure>
 </div>
-<p>As a reference beyond Player Load, we looked at the total IMA, measuring the total amount of movement in a session. From the visuals we see that like Player Load, total IMA also decreases until playoffs. This indicates that overall movement decreases, and therefore practice plans should be evaluated to better reflect these changes in player load, IMA, and explosive efforts.</p>
+<p>As a reference beyond Player Load, we looked at the <code>total IMA</code>, measuring the total amount of movement in a session. From the visuals we see that like Player Load, <code>total IMA</code> also decreases until playoffs. This indicates that overall movement decreases, and therefore practice plans should be evaluated to better reflect these changes in player load, IMA, and explosive efforts.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
